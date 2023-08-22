@@ -1,0 +1,890 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>요리보고 Yoribogo</title>
+  <link rel="stylesheet" href="recipeList.css">
+</head>
+<body>
+  <div id="__next">
+    <nav class="mainBanner">
+      <div>
+        <a href="">
+          <img src="" alt="" class="navLogo">
+        </a>
+      </div>
+      <div class="memberServiceWrap">
+        <div class="memberService">
+          <button type="button">
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" class="search">
+              <path fill-rule="evenodd" clip-rule="evenodd" d="M15.83 16.561a7.8 7.8 0 1 1 1.233-1.312l3.465 3.465a.9.9 0 1 1-1.272 1.273L15.83 16.56Zm1.13-5.961a6.16 6.16 0 1 1-12.32 0 6.16 6.16 0 0 1 12.32 0Z"></path>
+            </svg>
+          </button>
+          <a class="paymentSystem" href="">요금제</a>
+          <div>
+            <button type="button" class="loginButton">로그인</button>
+          </div>
+          <div class="postWriteWrap">
+            <button type="button" class="postWrite">나의레시피 공유하기</button>
+          </div>
+        </div>
+      </div>
+    </nav>
+    <div class="catagoryWrap">
+      <div class="catagory">
+        <span class="mainPage">main</span>
+        <span class="recipePage">레시피</span>
+        <span class="reviewPage">후기</span>
+      </div>
+    </div>
+    <main class="contentWrap">
+      <div class="contentCategory">
+        <div class="classification">
+          <div class="classification">
+            <label class="freeListWrap">
+              <!-- 클릭 시 value값이 값은 것만 게시판 표시 -->
+              <input type="radio" class="freeListCategory" value="free" checked>
+              <span class="spanFree">무료 공유</span>
+            </label>
+          </div>
+          <div class="classification">
+            <span class="line"></span>
+            <label class="payListWrap">
+              <!-- 클릭 시 value값이 값은 것만 게시판 표시 -->
+              <input type="radio" class="payListCategory" value="pay">
+              <span class="spanPay">유료 공유</span>
+            </label>
+          </div>
+        </div>
+        <button type="button" id="filterBtn" class="filterBtn">
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" class="filterSvg">
+            <path d="M4 7a.8.8 0 0 1 .8-.8h14.4a.8.8 0 0 1 0 1.6H4.8A.8.8 0 0 1 4 7Z"></path>
+            <path d="M17.8 7A1.9 1.9 0 1 1 14 7a1.9 1.9 0 0 1 3.8 0ZM4 12a.8.8 0 0 1 .8-.8h14.4a.8.8 0 0 1 0 1.6H4.8A.8.8 0 0 1 4 12Z"></path>
+            <path d="M10.8 12A1.9 1.9 0 1 1 7 12a1.9 1.9 0 0 1 3.8 0ZM4 17a.8.8 0 0 1 .8-.8h14.4a.8.8 0 0 1 0 1.6H4.8A.8.8 0 0 1 4 17Z"></path>
+            <path d="M13.8 17a1.9 1.9 0 1 1-3.8 0 1.9 1.9 0 0 1 3.8 0Z"></path>
+          </svg>
+          <span class="filterSpan">필터</span>
+        </button>
+      </div>
+      <!-- 무료 공유 게시판 -->
+      <div>
+        <ul class="freeList">
+          <li class="freeItemWrap">
+            <div>
+              <!-- 버튼태그에 클릭 이벤트 리스너 있으니 게시글 상세보기로 연결 -->
+              <button type="button" class="freeItem">
+                <div class="itemThumbnail">
+                  <!-- 게시글 정보 가져와서 h2와 p태그 value 채우기 -->
+                  <div class="contentThumbnail">
+                    <h2 class="contentHeader">저 다시 옵니다.</h2>
+                    <p class="content">썰 그득 채워 인생 렙업해 왔슴니다. 투 비 컨티뉴드.</p>
+                  </div>
+                  <!-- 게시글에 이미지 있을 경우 display: block설정 필요 -->
+                  <div class="imageThumbnailWrap">
+                    <span class="imageThumbnail">
+                      <img alt src="" decoding="async" data-nimg="fill" class="image">
+                    </span>
+                  </div>
+                </div>
+                <div class="itemThumbnailFooter">
+                  <div class="userImage"></div>
+                  <div class="nameTimeHits">
+                    <!-- 닉넴임 -->
+                    <span class="nickname">아무개</span>
+                    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" class="circle">
+                      <circle cx="12" cy="12" r="4"></circle>
+                    </svg>
+                    <!-- 등록시간 기준 0시간, 0일, 0달, 0년 전으로 입력 -->
+                    <span class="time">1시간 전</span>
+                    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" class="circle">
+                      <circle cx="12" cy="12" r="4"></circle>
+                    </svg>
+                    <!-- 뒤의 숫자는 받아서 출력 -->
+                    <span class="hits">조회수 1</span>
+                  </div>
+                </div>
+              </button>
+            </div>
+          </li>
+          <li class="freeItemWrap">
+            <div>
+              <!-- 버튼태그에 클릭 이벤트 리스너 있으니 게시글 상세보기로 연결 -->
+              <button type="button" class="freeItem">
+                <div class="itemThumbnail">
+                  <!-- 게시글 정보 가져와서 h2와 p태그 value 채우기 -->
+                  <div class="contentThumbnail">
+                    <h2 class="contentHeader">저 다시 옵니다.</h2>
+                    <p class="content">썰 그득 채워 인생 렙업해 왔슴니다. 투 비 컨티뉴드.</p>
+                  </div>
+                  <!-- 게시글에 이미지 있을 경우 display: block설정 필요 -->
+                  <div class="imageThumbnailWrap">
+                    <span class="imageThumbnail">
+                      <img alt src="" decoding="async" data-nimg="fill" class="image">
+                    </span>
+                  </div>
+                </div>
+                <div class="itemThumbnailFooter">
+                  <div class="userImage"></div>
+                  <div class="nameTimeHits">
+                    <!-- 닉네임 -->
+                    <span class="nickname">아무개</span>
+                    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" class="circle">
+                      <circle cx="12" cy="12" r="4"></circle>
+                    </svg>
+                    <!-- 등록시간 기준 0시간, 0일, 0달, 0년 전으로 입력 -->
+                    <span class="time">1시간 전</span>
+                    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" class="circle">
+                      <circle cx="12" cy="12" r="4"></circle>
+                    </svg>
+                    <!-- 뒤의 숫자는 받아서 출력 -->
+                    <span class="hits">조회수 1</span>
+                  </div>
+                </div>
+              </button>
+            </div>
+          </li>
+          <li class="freeItemWrap">
+            <div>
+              <!-- 버튼태그에 클릭 이벤트 리스너 있으니 게시글 상세보기로 연결 -->
+              <button type="button" class="freeItem">
+                <div class="itemThumbnail">
+                  <!-- 게시글 정보 가져와서 h2와 p태그 value 채우기 -->
+                  <div class="contentThumbnail">
+                    <h2 class="contentHeader">이 글을 보면 똑똑해집니다. </h2>
+                    <p class="content">스페인어로 하트를 뭐라고 하는지 아시는 분 계신가요? 바로 '꼬라쏜 Coraźon'입니다. 여러분들은 클릭 한 번으로 스페인어를 배웠습니다. 축하합니다. 근데.. 들어오신김에 꼬라쏜이라고 하는 하트모양 뜨개 키링에 담긴 이야기를 들어보실래요? ❤️💙💛🧡💜 제가 지금은 코바늘로만 뜨개를 하는 코바늘 악개인데, 원래 뜨개는 대바늘로 시작했어요. 초등학생때 겉뜨기 안뜨기를 번갈아서 만든 목도리가 첫 작품이었습니다. 대부분은 이렇게 시작하죠? 암튼 그래서 어렸을 때부터 친숙했던 대바늘과 달리 코바늘은 잡아본 적도 없는 낯선 존재였어요. 그러다 이 온라인클래스를 듣게 되었습니다. 새로운 것을 배울 기회가 적은 직장인에게 준비물까지 보내주니 딱 저에게 필요했던 플랫폼...이기도 했지만 사실은 이 강의의 선생님, 그니까 크리에이터분과 아는 사이라 꼭 한 번 들어보고 싶었어요. 크리에이터의 친필 사인이 있는 특별 패키지를 받았었네요. 크리에이터님이 좀 악필이신 것 같아요. 처음으로 코바늘을 잡는 방법과 실을 잡는 방법, 손의 힘을 컨트롤하는 방법 등을 배우고 연습했는데요. 생각보다 너무너무 어려웠어요. 여러분들은 코바늘을 첨 잡았을 때 어땠나요? 다들 쉽게 감을 잡았나요? 코바늘을 잡아본 적 없는 분들은 한 번 잡아보시죠. 꽤 어렵다구요..! 제가 처음으로 매직링을 만들고 2단까지 뜬 결과물입니다. 여러분은 모르시겠죠? 저 쬐끄만거 하나에 한 사람의 희노애락이 모두 들어가있다는 것을요.. 뜨고 푸르고를 817번 정도 반복하다가 집어 던졌다가 마음을 다잡았다가 쌍욕을 했다가 실에게 호소했다가 완성했어요. 지금 생각하면 뭐가 그렇게 어려웠는지.. 몰랐다가 지금 깨달았는데 단수링도 안끼고 떴네요? 첫 코 어떻게 찾았을까요? 🤔 처음으로 완성한 꼬라쏜입니다. 빨간색으로 시작했는데 분홍색이 되는 마법도 부릴줄알게 되었어요. 너무 귀엽죠? 요 아이를 야야베이님께 보여줬는데 깜짝 놀라시면서 왜이렇게 작냐고 하시더라고요. 제가 실을 무지하게 잡아당기면서 뜬거죠.. 어쩐지 꼬라쏜 하나 완성하고나면 손을 당분간 못쓸 정도긴 했어요. 이걸 계기로 제 손의 장력이 세다는 걸 알게됐고, 원하는 사이즈로 뜨개를 하기 위해서 손의 힘을 조절하거나 바늘의 크기를 조절하는 것도 할 수 있게 되었답니다. 짧은 뜨기만 알면 뜰 수 있어서 한 번 방법을 터득하니 뜨기에 어렵지는 않았어요. 다만 하트의 윗부분, 그러니까 왼쪽 오른쪽 갈라지는 부분이 다소 까다로울 수 있습니다! 그래도 통통하게 귀를 완성하면 너무나도 행복하답니다💖 무엇보다 꼬라쏜의 가장 큰 매력은 다양한 색과 패턴이 모두 잘 어울린다는 거예요. 그래서 저는 지인들에게 어울리는 꼬라쏜을 디자인하고 떠서 선물하기도 많이 했어요. 다만 클래스 키트에 포함된 실은 다소 얇은 편이고, 하트의 뿌리 부분이 코가 적어서(3코였나..) 아주아주 초보자라면 시작이 어려울 수 있어요. 조금 더 굵은 실로 시작해보세요! 이상 절 코바늘의 세계로 인도해준, 절 뜨친놈으로 만든 첫번째 주인공 꼬라쏜이었습니다. 이 글의 제목이 기억나시나요? 이 글을 보면 똑똑해진다고 했는데요. 왜냐하면 스페인어 하나를 알게 되었기 때문이죠. 근데 여기까지 봐주신 분들은 너무 감사하니 하나만 더 알려드릴게요. 여러분들은 luz de mi corazón....✨ 아, 여러분들의 첫 코바늘 작품은 뭐였나요?! 어떤 우여곡절을 겪었나요? 댓글로 알려주세용... (댓글 작성 유도 맞아요 ^^)</p>
+                  </div>
+                  <!-- 게시글에 이미지 있을 경우 display: block설정 필요 -->
+                  <div class="imageThumbnailWrap">
+                    <span class="imageThumbnail">
+                      <img alt src="" decoding="async" data-nimg="fill" class="image">
+                    </span>
+                  </div>
+                </div>
+                <div class="itemThumbnailFooter">
+                  <!-- css속성 background: url() 괄호안에 프로필의 이미지 입력 -->
+                  <div class="userImage"></div>
+                  <div class="nameTimeHits">
+                    <!-- 닉넴임 -->
+                    <span class="nickname">뜨샘</span>
+                    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" class="circle">
+                      <circle cx="12" cy="12" r="4"></circle>
+                    </svg>
+                    <!-- 등록시간 기준 0시간, 0일, 0달, 0년 전으로 입력 -->
+                    <span class="time">3시간 전</span>
+                    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" class="circle">
+                      <circle cx="12" cy="12" r="4"></circle>
+                    </svg>
+                    <!-- 뒤의 숫자는 받아서 출력 -->
+                    <span class="hits">조회수 8</span>
+                  </div>
+                </div>
+              </button>
+            </div>
+          </li>
+          <li class="freeItemWrap">
+            <div>
+              <!-- 버튼태그에 클릭 이벤트 리스너 있으니 게시글 상세보기로 연결 -->
+              <button type="button" class="freeItem">
+                <div class="itemThumbnail">
+                  <!-- 게시글 정보 가져와서 h2와 p태그 value 채우기 -->
+                  <div class="contentThumbnail">
+                    <h2 class="contentHeader">저 다시 옵니다.</h2>
+                    <p class="content">썰 그득 채워 인생 렙업해 왔슴니다. 투 비 컨티뉴드.</p>
+                  </div>
+                  <!-- 게시글에 이미지 있을 경우 display: block설정 필요 -->
+                  <div class="imageThumbnailWrap">
+                    <span class="imageThumbnail">
+                      <img alt src="" decoding="async" data-nimg="fill" class="image">
+                    </span>
+                  </div>
+                </div>
+                <div class="itemThumbnailFooter">
+                  <!-- css속성 background: url() 괄호안에 프로필의 이미지 입력 -->
+                  <div class="userImage"></div>
+                  <div class="nameTimeHits">
+                    <!-- 닉넴임 -->
+                    <span class="nickname">아무개</span>
+                    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" class="circle">
+                      <circle cx="12" cy="12" r="4"></circle>
+                    </svg>
+                    <!-- 등록시간 기준 0시간, 0일, 0달, 0년 전으로 입력 -->
+                    <span class="time">1시간 전</span>
+                    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" class="circle">
+                      <circle cx="12" cy="12" r="4"></circle>
+                    </svg>
+                    <!-- 뒤의 숫자는 받아서 출력 -->
+                    <span class="hits">조회수 1</span>
+                  </div>
+                </div>
+              </button>
+            </div>
+          </li>
+          <li class="freeItemWrap">
+            <div>
+              <!-- 버튼태그에 클릭 이벤트 리스너 있으니 게시글 상세보기로 연결 -->
+              <button type="button" class="freeItem">
+                <div class="itemThumbnail">
+                  <!-- 게시글 정보 가져와서 h2와 p태그 value 채우기 -->
+                  <div class="contentThumbnail">
+                    <h2 class="contentHeader">저 다시 옵니다.</h2>
+                    <p class="content">썰 그득 채워 인생 렙업해 왔슴니다. 투 비 컨티뉴드.</p>
+                  </div>
+                  <!-- 게시글에 이미지 있을 경우 display: block설정 필요 -->
+                  <div class="imageThumbnailWrap">
+                    <span class="imageThumbnail">
+                      <img alt src="" decoding="async" data-nimg="fill" class="image">
+                    </span>
+                  </div>
+                </div>
+                <div class="itemThumbnailFooter">
+                  <!-- css속성 background: url() 괄호안에 프로필의 이미지 입력 -->
+                  <div class="userImage"></div>
+                  <div class="nameTimeHits">
+                    <!-- 닉넴임 -->
+                    <span class="nickname">아무개</span>
+                    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" class="circle">
+                      <circle cx="12" cy="12" r="4"></circle>
+                    </svg>
+                    <!-- 등록시간 기준 0시간, 0일, 0달, 0년 전으로 입력 -->
+                    <span class="time">1시간 전</span>
+                    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" class="circle">
+                      <circle cx="12" cy="12" r="4"></circle>
+                    </svg>
+                    <!-- 뒤의 숫자는 받아서 출력 -->
+                    <span class="hits">조회수 1</span>
+                  </div>
+                </div>
+              </button>
+            </div>
+          </li>
+          <li class="freeItemWrap">
+            <div>
+              <!-- 버튼태그에 클릭 이벤트 리스너 있으니 게시글 상세보기로 연결 -->
+              <button type="button" class="freeItem">
+                <div class="itemThumbnail">
+                  <!-- 게시글 정보 가져와서 h2와 p태그 value 채우기 -->
+                  <div class="contentThumbnail">
+                    <h2 class="contentHeader">저 다시 옵니다.</h2>
+                    <p class="content">썰 그득 채워 인생 렙업해 왔슴니다. 투 비 컨티뉴드.</p>
+                  </div>
+                  <!-- 게시글에 이미지 있을 경우 display: block설정 필요 -->
+                  <div class="imageThumbnailWrap">
+                    <span class="imageThumbnail">
+                      <img alt src="" decoding="async" data-nimg="fill" class="image">
+                    </span>
+                  </div>
+                </div>
+                <div class="itemThumbnailFooter">
+                  <!-- css속성 background: url() 괄호안에 프로필의 이미지 입력 -->
+                  <div class="userImage"></div>
+                  <div class="nameTimeHits">
+                    <!-- 닉넴임 -->
+                    <span class="nickname">아무개</span>
+                    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" class="circle">
+                      <circle cx="12" cy="12" r="4"></circle>
+                    </svg>
+                    <!-- 등록시간 기준 0시간, 0일, 0달, 0년 전으로 입력 -->
+                    <span class="time">1시간 전</span>
+                    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" class="circle">
+                      <circle cx="12" cy="12" r="4"></circle>
+                    </svg>
+                    <!-- 뒤의 숫자는 받아서 출력 -->
+                    <span class="hits">조회수 1</span>
+                  </div>
+                </div>
+              </button>
+            </div>
+          </li>
+          <li class="freeItemWrap">
+            <div>
+              <!-- 버튼태그에 클릭 이벤트 리스너 있으니 게시글 상세보기로 연결 -->
+              <button type="button" class="freeItem">
+                <div class="itemThumbnail">
+                  <!-- 게시글 정보 가져와서 h2와 p태그 value 채우기 -->
+                  <div class="contentThumbnail">
+                    <h2 class="contentHeader">저 다시 옵니다.</h2>
+                    <p class="content">썰 그득 채워 인생 렙업해 왔슴니다. 투 비 컨티뉴드.</p>
+                  </div>
+                  <!-- 게시글에 이미지 있을 경우 display: block설정 필요 -->
+                  <div class="imageThumbnailWrap">
+                    <span class="imageThumbnail">
+                      <img alt src="" decoding="async" data-nimg="fill" class="image">
+                    </span>
+                  </div>
+                </div>
+                <div class="itemThumbnailFooter">
+                  <!-- css속성 background: url() 괄호안에 프로필의 이미지 입력 -->
+                  <div class="userImage"></div>
+                  <div class="nameTimeHits">
+                    <!-- 닉넴임 -->
+                    <span class="nickname">아무개</span>
+                    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" class="circle">
+                      <circle cx="12" cy="12" r="4"></circle>
+                    </svg>
+                    <!-- 등록시간 기준 0시간, 0일, 0달, 0년 전으로 입력 -->
+                    <span class="time">1시간 전</span>
+                    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" class="circle">
+                      <circle cx="12" cy="12" r="4"></circle>
+                    </svg>
+                    <!-- 뒤의 숫자는 받아서 출력 -->
+                    <span class="hits">조회수 1</span>
+                  </div>
+                </div>
+              </button>
+            </div>
+          </li>
+          <li class="freeItemWrap">
+            <div>
+              <!-- 버튼태그에 클릭 이벤트 리스너 있으니 게시글 상세보기로 연결 -->
+              <button type="button" class="freeItem">
+                <div class="itemThumbnail">
+                  <!-- 게시글 정보 가져와서 h2와 p태그 value 채우기 -->
+                  <div class="contentThumbnail">
+                    <h2 class="contentHeader">저 다시 옵니다.</h2>
+                    <p class="content">썰 그득 채워 인생 렙업해 왔슴니다. 투 비 컨티뉴드.</p>
+                  </div>
+                  <!-- 게시글에 이미지 있을 경우 display: block설정 필요 -->
+                  <div class="imageThumbnailWrap">
+                    <span class="imageThumbnail">
+                      <img alt src="" decoding="async" data-nimg="fill" class="image">
+                    </span>
+                  </div>
+                </div>
+                <div class="itemThumbnailFooter">
+                  <!-- css속성 background: url() 괄호안에 프로필의 이미지 입력 -->
+                  <div class="userImage"></div>
+                  <div class="nameTimeHits">
+                    <!-- 닉넴임 -->
+                    <span class="nickname">아무개</span>
+                    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" class="circle">
+                      <circle cx="12" cy="12" r="4"></circle>
+                    </svg>
+                    <!-- 등록시간 기준 0시간, 0일, 0달, 0년 전으로 입력 -->
+                    <span class="time">1시간 전</span>
+                    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" class="circle">
+                      <circle cx="12" cy="12" r="4"></circle>
+                    </svg>
+                    <!-- 뒤의 숫자는 받아서 출력 -->
+                    <span class="hits">조회수 1</span>
+                  </div>
+                </div>
+              </button>
+            </div>
+          </li>
+          <li class="freeItemWrap">
+            <div>
+              <!-- 버튼태그에 클릭 이벤트 리스너 있으니 게시글 상세보기로 연결 -->
+              <button type="button" class="freeItem">
+                <div class="itemThumbnail">
+                  <!-- 게시글 정보 가져와서 h2와 p태그 value 채우기 -->
+                  <div class="contentThumbnail">
+                    <h2 class="contentHeader">저 다시 옵니다.</h2>
+                    <p class="content">썰 그득 채워 인생 렙업해 왔슴니다. 투 비 컨티뉴드.</p>
+                  </div>
+                  <!-- 게시글에 이미지 있을 경우 display: block설정 필요 -->
+                  <div class="imageThumbnailWrap">
+                    <span class="imageThumbnail">
+                      <img alt src="" decoding="async" data-nimg="fill" class="image">
+                    </span>
+                  </div>
+                </div>
+                <div class="itemThumbnailFooter">
+                  <!-- css속성 background: url() 괄호안에 프로필의 이미지 입력 -->
+                  <div class="userImage"></div>
+                  <div class="nameTimeHits">
+                    <!-- 닉넴임 -->
+                    <span class="nickname">아무개</span>
+                    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" class="circle">
+                      <circle cx="12" cy="12" r="4"></circle>
+                    </svg>
+                    <!-- 등록시간 기준 0시간, 0일, 0달, 0년 전으로 입력 -->
+                    <span class="time">1시간 전</span>
+                    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" class="circle">
+                      <circle cx="12" cy="12" r="4"></circle>
+                    </svg>
+                    <!-- 뒤의 숫자는 받아서 출력 -->
+                    <span class="hits">조회수 1</span>
+                  </div>
+                </div>
+              </button>
+            </div>
+          </li>
+          <li class="freeItemWrap">
+            <div>
+              <!-- 버튼태그에 클릭 이벤트 리스너 있으니 게시글 상세보기로 연결 -->
+              <button type="button" class="freeItem">
+                <div class="itemThumbnail">
+                  <!-- 게시글 정보 가져와서 h2와 p태그 value 채우기 -->
+                  <div class="contentThumbnail">
+                    <h2 class="contentHeader">저 다시 옵니다.</h2>
+                    <p class="content">썰 그득 채워 인생 렙업해 왔슴니다. 투 비 컨티뉴드.</p>
+                  </div>
+                  <!-- 게시글에 이미지 있을 경우 display: block설정 필요 -->
+                  <div class="imageThumbnailWrap">
+                    <span class="imageThumbnail">
+                      <img alt src="" decoding="async" data-nimg="fill" class="image">
+                    </span>
+                  </div>
+                </div>
+                <div class="itemThumbnailFooter">
+                  <!-- css속성 background: url() 괄호안에 프로필의 이미지 입력 -->
+                  <div class="userImage"></div>
+                  <div class="nameTimeHits">
+                    <!-- 닉넴임 -->
+                    <span class="nickname">아무개</span>
+                    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" class="circle">
+                      <circle cx="12" cy="12" r="4"></circle>
+                    </svg>
+                    <!-- 등록시간 기준 0시간, 0일, 0달, 0년 전으로 입력 -->
+                    <span class="time">1시간 전</span>
+                    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" class="circle">
+                      <circle cx="12" cy="12" r="4"></circle>
+                    </svg>
+                    <!-- 뒤의 숫자는 받아서 출력 -->
+                    <span class="hits">조회수 1</span>
+                  </div>
+                </div>
+              </button>
+            </div>
+          </li>
+          <li class="freeItemWrap">
+            <div>
+              <!-- 버튼태그에 클릭 이벤트 리스너 있으니 게시글 상세보기로 연결 -->
+              <button type="button" class="freeItem">
+                <div class="itemThumbnail">
+                  <!-- 게시글 정보 가져와서 h2와 p태그 value 채우기 -->
+                  <div class="contentThumbnail">
+                    <h2 class="contentHeader">저 다시 옵니다.</h2>
+                    <p class="content">썰 그득 채워 인생 렙업해 왔슴니다. 투 비 컨티뉴드.</p>
+                  </div>
+                  <!-- 게시글에 이미지 있을 경우 display: block설정 필요 -->
+                  <div class="imageThumbnailWrap">
+                    <span class="imageThumbnail">
+                      <img alt src="" decoding="async" data-nimg="fill" class="image">
+                    </span>
+                  </div>
+                </div>
+                <div class="itemThumbnailFooter">
+                  <!-- css속성 background: url() 괄호안에 프로필의 이미지 입력 -->
+                  <div class="userImage"></div>
+                  <div class="nameTimeHits">
+                    <!-- 닉넴임 -->
+                    <span class="nickname">아무개</span>
+                    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" class="circle">
+                      <circle cx="12" cy="12" r="4"></circle>
+                    </svg>
+                    <!-- 등록시간 기준 0시간, 0일, 0달, 0년 전으로 입력 -->
+                    <span class="time">1시간 전</span>
+                    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" class="circle">
+                      <circle cx="12" cy="12" r="4"></circle>
+                    </svg>
+                    <!-- 뒤의 숫자는 받아서 출력 -->
+                    <span class="hits">조회수 1</span>
+                  </div>
+                </div>
+              </button>
+            </div>
+          </li>
+          <li class="freeItemWrap">
+            <div>
+              <!-- 버튼태그에 클릭 이벤트 리스너 있으니 게시글 상세보기로 연결 -->
+              <button type="button" class="freeItem">
+                <div class="itemThumbnail">
+                  <!-- 게시글 정보 가져와서 h2와 p태그 value 채우기 -->
+                  <div class="contentThumbnail">
+                    <h2 class="contentHeader">저 다시 옵니다.</h2>
+                    <p class="content">썰 그득 채워 인생 렙업해 왔슴니다. 투 비 컨티뉴드.</p>
+                  </div>
+                  <!-- 게시글에 이미지 있을 경우 display: block설정 필요 -->
+                  <div class="imageThumbnailWrap">
+                    <span class="imageThumbnail">
+                      <img alt src="" decoding="async" data-nimg="fill" class="image">
+                    </span>
+                  </div>
+                </div>
+                <div class="itemThumbnailFooter">
+                  <!-- css속성 background: url() 괄호안에 프로필의 이미지 입력 -->
+                  <div class="userImage"></div>
+                  <div class="nameTimeHits">
+                    <!-- 닉넴임 -->
+                    <span class="nickname">아무개</span>
+                    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" class="circle">
+                      <circle cx="12" cy="12" r="4"></circle>
+                    </svg>
+                    <!-- 등록시간 기준 0시간, 0일, 0달, 0년 전으로 입력 -->
+                    <span class="time">1시간 전</span>
+                    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" class="circle">
+                      <circle cx="12" cy="12" r="4"></circle>
+                    </svg>
+                    <!-- 뒤의 숫자는 받아서 출력 -->
+                    <span class="hits">조회수 1</span>
+                  </div>
+                </div>
+              </button>
+            </div>
+          </li>
+          <li class="freeItemWrap">
+            <div>
+              <!-- 버튼태그에 클릭 이벤트 리스너 있으니 게시글 상세보기로 연결 -->
+              <button type="button" class="freeItem">
+                <div class="itemThumbnail">
+                  <!-- 게시글 정보 가져와서 h2와 p태그 value 채우기 -->
+                  <div class="contentThumbnail">
+                    <h2 class="contentHeader">저 다시 옵니다.</h2>
+                    <p class="content">썰 그득 채워 인생 렙업해 왔슴니다. 투 비 컨티뉴드.</p>
+                  </div>
+                  <!-- 게시글에 이미지 있을 경우 display: block설정 필요 -->
+                  <div class="imageThumbnailWrap">
+                    <span class="imageThumbnail">
+                      <img alt src="" decoding="async" data-nimg="fill" class="image">
+                    </span>
+                  </div>
+                </div>
+                <div class="itemThumbnailFooter">
+                  <!-- css속성 background: url() 괄호안에 프로필의 이미지 입력 -->
+                  <div class="userImage"></div>
+                  <div class="nameTimeHits">
+                    <!-- 닉넴임 -->
+                    <span class="nickname">아무개</span>
+                    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" class="circle">
+                      <circle cx="12" cy="12" r="4"></circle>
+                    </svg>
+                    <!-- 등록시간 기준 0시간, 0일, 0달, 0년 전으로 입력 -->
+                    <span class="time">1시간 전</span>
+                    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" class="circle">
+                      <circle cx="12" cy="12" r="4"></circle>
+                    </svg>
+                    <!-- 뒤의 숫자는 받아서 출력 -->
+                    <span class="hits">조회수 1</span>
+                  </div>
+                </div>
+              </button>
+            </div>
+          </li>
+          <li class="freeItemWrap">
+            <div>
+              <!-- 버튼태그에 클릭 이벤트 리스너 있으니 게시글 상세보기로 연결 -->
+              <button type="button" class="freeItem">
+                <div class="itemThumbnail">
+                  <!-- 게시글 정보 가져와서 h2와 p태그 value 채우기 -->
+                  <div class="contentThumbnail">
+                    <h2 class="contentHeader">저 다시 옵니다.</h2>
+                    <p class="content">썰 그득 채워 인생 렙업해 왔슴니다. 투 비 컨티뉴드.</p>
+                  </div>
+                  <!-- 게시글에 이미지 있을 경우 display: block설정 필요 -->
+                  <div class="imageThumbnailWrap">
+                    <span class="imageThumbnail">
+                      <img alt src="" decoding="async" data-nimg="fill" class="image">
+                    </span>
+                  </div>
+                </div>
+                <div class="itemThumbnailFooter">
+                  <!-- css속성 background: url() 괄호안에 프로필의 이미지 입력 -->
+                  <div class="userImage"></div>
+                  <div class="nameTimeHits">
+                    <!-- 닉넴임 -->
+                    <span class="nickname">아무개</span>
+                    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" class="circle">
+                      <circle cx="12" cy="12" r="4"></circle>
+                    </svg>
+                    <!-- 등록시간 기준 0시간, 0일, 0달, 0년 전으로 입력 -->
+                    <span class="time">1시간 전</span>
+                    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" class="circle">
+                      <circle cx="12" cy="12" r="4"></circle>
+                    </svg>
+                    <!-- 뒤의 숫자는 받아서 출력 -->
+                    <span class="hits">조회수 1</span>
+                  </div>
+                </div>
+              </button>
+            </div>
+          </li>
+          <li class="freeItemWrap">
+            <div>
+              <!-- 버튼태그에 클릭 이벤트 리스너 있으니 게시글 상세보기로 연결 -->
+              <button type="button" class="freeItem">
+                <div class="itemThumbnail">
+                  <!-- 게시글 정보 가져와서 h2와 p태그 value 채우기 -->
+                  <div class="contentThumbnail">
+                    <h2 class="contentHeader">저 다시 옵니다.</h2>
+                    <p class="content">썰 그득 채워 인생 렙업해 왔슴니다. 투 비 컨티뉴드.</p>
+                  </div>
+                  <!-- 게시글에 이미지 있을 경우 display: block설정 필요 -->
+                  <div class="imageThumbnailWrap">
+                    <span class="imageThumbnail">
+                      <img alt src="" decoding="async" data-nimg="fill" class="image">
+                    </span>
+                  </div>
+                </div>
+                <div class="itemThumbnailFooter">
+                  <!-- css속성 background: url() 괄호안에 프로필의 이미지 입력 -->
+                  <div class="userImage"></div>
+                  <div class="nameTimeHits">
+                    <!-- 닉넴임 -->
+                    <span class="nickname">아무개</span>
+                    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" class="circle">
+                      <circle cx="12" cy="12" r="4"></circle>
+                    </svg>
+                    <!-- 등록시간 기준 0시간, 0일, 0달, 0년 전으로 입력 -->
+                    <span class="time">1시간 전</span>
+                    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" class="circle">
+                      <circle cx="12" cy="12" r="4"></circle>
+                    </svg>
+                    <!-- 뒤의 숫자는 받아서 출력 -->
+                    <span class="hits">조회수 1</span>
+                  </div>
+                </div>
+              </button>
+            </div>
+          </li>
+          <li class="freeItemWrap">
+            <div>
+              <!-- 버튼태그에 클릭 이벤트 리스너 있으니 게시글 상세보기로 연결 -->
+              <button type="button" class="freeItem">
+                <div class="itemThumbnail">
+                  <!-- 게시글 정보 가져와서 h2와 p태그 value 채우기 -->
+                  <div class="contentThumbnail">
+                    <h2 class="contentHeader">저 다시 옵니다.</h2>
+                    <p class="content">썰 그득 채워 인생 렙업해 왔슴니다. 투 비 컨티뉴드.</p>
+                  </div>
+                  <!-- 게시글에 이미지 있을 경우 display: block설정 필요 -->
+                  <div class="imageThumbnailWrap">
+                    <span class="imageThumbnail">
+                      <img alt src="" decoding="async" data-nimg="fill" class="image">
+                    </span>
+                  </div>
+                </div>
+                <div class="itemThumbnailFooter">
+                  <!-- css속성 background: url() 괄호안에 프로필의 이미지 입력 -->
+                  <div class="userImage"></div>
+                  <div class="nameTimeHits">
+                    <!-- 닉넴임 -->
+                    <span class="nickname">아무개</span>
+                    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" class="circle">
+                      <circle cx="12" cy="12" r="4"></circle>
+                    </svg>
+                    <!-- 등록시간 기준 0시간, 0일, 0달, 0년 전으로 입력 -->
+                    <span class="time">1시간 전</span>
+                    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" class="circle">
+                      <circle cx="12" cy="12" r="4"></circle>
+                    </svg>
+                    <!-- 뒤의 숫자는 받아서 출력 -->
+                    <span class="hits">조회수 1</span>
+                  </div>
+                </div>
+              </button>
+            </div>
+          </li>
+          <li class="freeItemWrap">
+            <div>
+              <!-- 버튼태그에 클릭 이벤트 리스너 있으니 게시글 상세보기로 연결 -->
+              <button type="button" class="freeItem">
+                <div class="itemThumbnail">
+                  <!-- 게시글 정보 가져와서 h2와 p태그 value 채우기 -->
+                  <div class="contentThumbnail">
+                    <h2 class="contentHeader">저 다시 옵니다.</h2>
+                    <p class="content">썰 그득 채워 인생 렙업해 왔슴니다. 투 비 컨티뉴드.</p>
+                  </div>
+                  <!-- 게시글에 이미지 있을 경우 display: block설정 필요 -->
+                  <div class="imageThumbnailWrap">
+                    <span class="imageThumbnail">
+                      <img alt src="" decoding="async" data-nimg="fill" class="image">
+                    </span>
+                  </div>
+                </div>
+                <div class="itemThumbnailFooter">
+                  <!-- css속성 background: url() 괄호안에 프로필의 이미지 입력 -->
+                  <div class="userImage"></div>
+                  <div class="nameTimeHits">
+                    <!-- 닉넴임 -->
+                    <span class="nickname">아무개</span>
+                    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" class="circle">
+                      <circle cx="12" cy="12" r="4"></circle>
+                    </svg>
+                    <!-- 등록시간 기준 0시간, 0일, 0달, 0년 전으로 입력 -->
+                    <span class="time">1시간 전</span>
+                    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" class="circle">
+                      <circle cx="12" cy="12" r="4"></circle>
+                    </svg>
+                    <!-- 뒤의 숫자는 받아서 출력 -->
+                    <span class="hits">조회수 1</span>
+                  </div>
+                </div>
+              </button>
+            </div>
+          </li>
+          <li class="freeItemWrap">
+            <div>
+              <!-- 버튼태그에 클릭 이벤트 리스너 있으니 게시글 상세보기로 연결 -->
+              <button type="button" class="freeItem">
+                <div class="itemThumbnail">
+                  <!-- 게시글 정보 가져와서 h2와 p태그 value 채우기 -->
+                  <div class="contentThumbnail">
+                    <h2 class="contentHeader">저 다시 옵니다.</h2>
+                    <p class="content">썰 그득 채워 인생 렙업해 왔슴니다. 투 비 컨티뉴드.</p>
+                  </div>
+                  <!-- 게시글에 이미지 있을 경우 display: block설정 필요 -->
+                  <div class="imageThumbnailWrap">
+                    <span class="imageThumbnail">
+                      <img alt src="" decoding="async" data-nimg="fill" class="image">
+                    </span>
+                  </div>
+                </div>
+                <div class="itemThumbnailFooter">
+                  <!-- css속성 background: url() 괄호안에 프로필의 이미지 입력 -->
+                  <div class="userImage"></div>
+                  <div class="nameTimeHits">
+                    <!-- 닉넴임 -->
+                    <span class="nickname">아무개</span>
+                    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" class="circle">
+                      <circle cx="12" cy="12" r="4"></circle>
+                    </svg>
+                    <!-- 등록시간 기준 0시간, 0일, 0달, 0년 전으로 입력 -->
+                    <span class="time">1시간 전</span>
+                    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" class="circle">
+                      <circle cx="12" cy="12" r="4"></circle>
+                    </svg>
+                    <!-- 뒤의 숫자는 받아서 출력 -->
+                    <span class="hits">조회수 1</span>
+                  </div>
+                </div>
+              </button>
+            </div>
+          </li>
+          <li class="freeItemWrap">
+            <div>
+              <!-- 버튼태그에 클릭 이벤트 리스너 있으니 게시글 상세보기로 연결 -->
+              <button type="button" class="freeItem">
+                <div class="itemThumbnail">
+                  <!-- 게시글 정보 가져와서 h2와 p태그 value 채우기 -->
+                  <div class="contentThumbnail">
+                    <h2 class="contentHeader">저 다시 옵니다.</h2>
+                    <p class="content">썰 그득 채워 인생 렙업해 왔슴니다. 투 비 컨티뉴드.</p>
+                  </div>
+                  <!-- 게시글에 이미지 있을 경우 display: block설정 필요 -->
+                  <div class="imageThumbnailWrap">
+                    <span class="imageThumbnail">
+                      <img alt src="" decoding="async" data-nimg="fill" class="image">
+                    </span>
+                  </div>
+                </div>
+                <div class="itemThumbnailFooter">
+                  <!-- css속성 background: url() 괄호안에 프로필의 이미지 입력 -->
+                  <div class="userImage"></div>
+                  <div class="nameTimeHits">
+                    <!-- 닉넴임 -->
+                    <span class="nickname">아무개</span>
+                    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" class="circle">
+                      <circle cx="12" cy="12" r="4"></circle>
+                    </svg>
+                    <!-- 등록시간 기준 0시간, 0일, 0달, 0년 전으로 입력 -->
+                    <span class="time">1시간 전</span>
+                    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" class="circle">
+                      <circle cx="12" cy="12" r="4"></circle>
+                    </svg>
+                    <!-- 뒤의 숫자는 받아서 출력 -->
+                    <span class="hits">조회수 1</span>
+                  </div>
+                </div>
+              </button>
+            </div>
+          </li>
+          <li class="freeItemWrap">
+            <div>
+              <!-- 버튼태그에 클릭 이벤트 리스너 있으니 게시글 상세보기로 연결 -->
+              <button type="button" class="freeItem">
+                <div class="itemThumbnail">
+                  <!-- 게시글 정보 가져와서 h2와 p태그 value 채우기 -->
+                  <div class="contentThumbnail">
+                    <h2 class="contentHeader">저 다시 옵니다.</h2>
+                    <p class="content">썰 그득 채워 인생 렙업해 왔슴니다. 투 비 컨티뉴드.</p>
+                  </div>
+                  <!-- 게시글에 이미지 있을 경우 display: block설정 필요 -->
+                  <div class="imageThumbnailWrap">
+                    <span class="imageThumbnail">
+                      <img alt src="" decoding="async" data-nimg="fill" class="image">
+                    </span>
+                  </div>
+                </div>
+                <div class="itemThumbnailFooter">
+                  <!-- css속성 background: url() 괄호안에 프로필의 이미지 입력 -->
+                  <div class="userImage"></div>
+                  <div class="nameTimeHits">
+                    <!-- 닉넴임 -->
+                    <span class="nickname">아무개</span>
+                    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" class="circle">
+                      <circle cx="12" cy="12" r="4"></circle>
+                    </svg>
+                    <!-- 등록시간 기준 0시간, 0일, 0달, 0년 전으로 입력 -->
+                    <span class="time">1시간 전</span>
+                    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" class="circle">
+                      <circle cx="12" cy="12" r="4"></circle>
+                    </svg>
+                    <!-- 뒤의 숫자는 받아서 출력 -->
+                    <span class="hits">조회수 1</span>
+                  </div>
+                </div>
+              </button>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </main>
+    <div id="filterContainer" class="filterContainer">
+      <div class="filterBox">
+        <div class="filterCategory">
+          <h4 class="filterHeadline">카테고리 설정</h4>
+          <div style="height: 24px;"></div>
+          <div class="filtercontent">
+            <label class="filterItem">
+              <input type="checkbox" class="catagoryInput">
+              <span class="catagoryName">한식</span>
+            </label>
+            <label class="filterItem">
+              <input type="checkbox" class="catagoryInput">
+              <span class="catagoryName">중식</span>
+            </label>
+            <label class="filterItem">
+              <input type="checkbox" class="catagoryInput">
+              <span class="catagoryName">일식</span>
+            </label>
+            <label class="filterItem">
+              <input type="checkbox" class="catagoryInput">
+              <span class="catagoryName">양식</span>
+            </label>
+            <label class="filterItem">
+              <input type="checkbox" class="catagoryInput">
+              <span class="catagoryName">술안주</span>
+            </label>
+            <label class="filterItem">
+              <input type="checkbox" class="catagoryInput">
+              <span class="catagoryName">한식</span>
+            </label>
+            <label class="filterItem">
+              <input type="checkbox" class="catagoryInput">
+              <span class="catagoryName">한식</span>
+            </label>
+            <label class="filterItem">
+              <input type="checkbox" class="catagoryInput">
+              <span class="catagoryName">한식</span>
+            </label>
+            <label class="filterItem">
+              <input type="checkbox" class="catagoryInput">
+              <span class="catagoryName">한식</span>
+            </label>
+            <label class="filterItem">
+              <input type="checkbox" class="catagoryInput">
+              <span class="catagoryName">한식</span>
+            </label>
+          </div>
+          <div style="height: 24px;"></div>
+          <button type="button" class="categoryButton">적용</button>
+        </div>
+      </div>
+      <div id="filterWrap" class="filterWrap"></div>
+    </div>
+  </div>
+</body>
+<script src="recipeList.js"></script>
+</html>
