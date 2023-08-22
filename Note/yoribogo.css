@@ -1,0 +1,45 @@
+/* 기본 */
+* {
+  box-sizing: border-box;
+  border: 0 solid #e5e7eb;
+}
+
+body {
+  line-height: inherit;
+}
+/* padding */
+.pxSixteen{
+  padding-left: 16px;
+  padding-right: 16px;
+}
+/* margin */
+
+/* display, justify, align.. */
+.flex {
+  display: flex;
+}
+
+.justifyBetween {
+  justify-content: space-between;
+}
+
+.alignCenter {
+  align-items: center;
+}
+/* width height */
+.wFull {
+  width: 100%;
+}
+
+.hFiftySix {
+  height: 56px;
+}
+/* direction, gap */
+.leftZero {
+  left: 0;
+}
+
+.topZero {
+  top: 0;
+}
+/* position */
