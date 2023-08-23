@@ -1,5 +1,5 @@
 
-// 로그인시
+// 로그인후 클릭 하면 나오는 이벤트
 const navLogin=document.querySelector(".navLogin");
 const loginClick=document.querySelector(".loginClick");
 navLogin.addEventListener("click",()=>{
@@ -8,6 +8,55 @@ navLogin.addEventListener("click",()=>{
   }else{ 		
     loginClick.style.display = 'none'; 	
   } 
+})
+//추천 main.. 선택시 색변경
+const headlinePrimary =document.querySelector(".headlinePrimary");
+const headlineOntent=document.querySelector(".headlineOntent");
+headlineOntent.addEventListener("click",(e)=>{
+  if(e.target.style.color!="#1d1d1e"){
+    e.target.style.color="#1d1d1e"
+    headlinePrimary.style.color="#b9b9bb";
+  }
+})
+headlinePrimary.addEventListener("click",(e)=>{
+  if(e.target.style.color!="#b9b9bb"){
+    e.target.style.color="#1d1d1e"
+    headlineOntent.style.color="#b9b9bb";
+  }
+})
+
+// 요리 분류 선택시 색..등등 변경
+const categoryButtonFirst=document.querySelector(".categoryButtonFirst");
+const categoryButton=document.querySelectorAll(".categoryButton");
+categoryButton.forEach((e)=>{
+  e.addEventListener("click",()=>{
+    if(!e.style.backgroundColor!="#7e69fe"){
+      e.style.cssText =`#7e69fe,
+      padding-top: 9px;
+      padding-bottom: 9px;
+      padding-left: 12px;
+      padding-right: 12px;
+      font-weight: 700;
+      font-size: 14px;
+      line-height: 18px;
+      color: #fff;
+      fill: #fff;
+      background-color: #7e69fe;`
+      categoryButtonFirst.style.cssText=`
+      padding-left: 11px;
+      padding-right: 11px;
+      padding-top: 8px;
+      padding-bottom: 8px;
+      border-width: 1px;
+      font-weight: 400;
+      font-size: 14px;
+      line-height: 18px;
+      color: #1d1d1e;
+      fill: #1d1d1e;
+      border-color: #e6e6e7;
+      background-color : white;`
+    }
+  })
 })
 // 슬라이드 배너
 function autoSlide() {
