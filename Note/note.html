@@ -2,30 +2,246 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>받은 쪽지함</title>
-    <link rel="stylesheet" href="" />
-    <link
-      rel="shortcut icon"
-      href="./images/yoribogo.png"
-      type="image/x-icon"/>
+    <title>받은 쪽지함: 요리보고 쪽지</title>
+    <link rel="icon" href="../resources/yoribogo_favicon.ico" />
+    <link rel="stylesheet" href="./note.css" />
   </head>
   <body>
-    <div id="noteWrap">
-      <div >
-        <h1>
-          <a href="/" class="yoribogo">
-            <span class="blind">요리보고.</span>
-          </a>
-          <a href="/" class="svc noteHome"><span></span></a>
-        </h1>
-        <div></div>
-        <span></span>
-        <span></span>
+    <div class="wrap">
+      <div class="innerWrapper">
+        <nav class="innerWrapperNav">
+          <div>
+            <div class="navInner">
+              <a href="http://127.0.0.1:5500/%EB%A7%88%EC%9D%B4%ED%8E%98%EC%9D%B4%EC%A7%80/myinfo.html">
+                <img class="svg2" src="../resources/yoribogo_logo.png" />
+              </a>
+              <div class="aBelow"></div>
+              <div class="wrapperBody">
+                <span>쪽지</span>
+              </div>
+            </div>
+          </div>
+          <div class="innerBody">
+            <div class="relative">
+              <button class="profileBtn">
+                <span
+                  style="
+                    box-sizing: border-box;
+                    display: block;
+                    overflow: hidden;
+                    width: initial;
+                    height: initial;
+                    background: none;
+                    opacity: 1;
+                    border: 0px;
+                    margin: 0px;
+                    padding: 0px;
+                    position: absolute;
+                    inset: 0px;
+                  "
+                  ><img
+                    alt="프로필 이미지"
+                    sizes="100vw"
+                    src="../resources/userProfile.png"
+                    decoding="async"
+                    data-nimg="fill"
+                    class="rounded-full"
+                    style="
+                      position: absolute;
+                      inset: 0px;
+                      box-sizing: border-box;
+                      padding: 0px;
+                      border: none;
+                      margin: auto;
+                      display: block;
+                      width: 0px;
+                      height: 0px;
+                      min-width: 100%;
+                      max-width: 100%;
+                      min-height: 100%;
+                      max-height: 100%;
+                      object-fit: cover;
+                      object-position: center center;
+                    "
+                /></span>
+              </button>
+              <!--여기에 프로필 모달 구현 -->
+              <div class="profileModalWrapper">
+                <ul class="profileUl">
+                  <li tabindex="-1" class="undefined">
+                    <div class="profileLi1">
+                      <span id="profileName">승우</span>
+                      <span id="profileEmail">swlee051221@gmail.com</span>
+                    </div>
+                  </li>
+                  <li tabindex="-1" class="undefined">
+                    <button type="button" class="profileModalBtns">가입 중인 멤버십</button>
+                  </li>
+                  <li tabindex="-1" class="undefined">
+                    <button type="button" class="profileModalBtns">내 포인트</button>
+                  </li>
+                  <li tabindex="-1" class="undefined">
+                    <button type="button" class="profileModalBtns">쿠폰함</button>
+                  </li>
+                  <li tabindex="-1" class="undefined">
+                    <button type="button" class="profileModalBtns">내 결제수단</button>
+                  </li>
+
+                  <li tabindex="-1" class="undefined">
+                    <button type="button" class="kakaoBtn">
+                      <svg viewBox="0 0 17 16" xmlns="http://www.w3.org/2000/svg" class="kakao1">
+                        <path
+                          fill-rule="evenodd"
+                          clip-rule="evenodd"
+                          d="M8.5 2C4.803 2 1.833 4.306 1.833 7.128a5.026 5.026 0 0 0 3.091 4.339l-.636 2.306c-.03.06 0 .151.06.181.061.061.182.061.243 0l2.697-1.79c.394.061.788.091 1.212.091 3.667 0 6.667-2.306 6.667-5.127C15.167 4.306 12.197 2 8.5 2Z"
+                        ></path>
+                      </svg>
+                      <p class="kakao2">카카오톡 계정 연동하고<br />간편하게 로그인</p>
+                      <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" class="svgKakao">
+                        <path
+                          fill-rule="evenodd"
+                          clip-rule="evenodd"
+                          d="M8.42 20.73a1.076 1.076 0 0 1-.13-1.587L14.832 12 8.289 4.857a1.076 1.076 0 0 1 .13-1.586 1.26 1.26 0 0 1 1.696.122L18 12l-7.885 8.607a1.26 1.26 0 0 1-1.695.122Z"
+                        ></path>
+                      </svg>
+                    </button>
+                  </li>
+                  <li tabindex="-1" class="undefined">
+                    <button type="button" class="profileModalBtns">로그아웃</button>
+                  </li>
+                </ul>
+              </div>
+              <!--여기까지 프로필 모달 구현 -->
+            </div>
+          </div>
+        </nav>
+        <div class="overflow">
+          <nav class="surfaceSecondary">
+            <div class="surfaceInner">
+              <div class="flexCol">
+                <div class="margin12"></div>
+                <h2 class="userName">승우</h2>
+                <a href="">
+                  <button type="button" class="myPageButton">
+                    <div class="myPageButtonInner">
+                      <div>내 쪽지</div>
+                      <svg
+                        viewBox="0 0 24 24"
+                        xmlns="http://www.w3.org/2000/svg"
+                        height="16px"
+                        width="16px"
+                        class="svg3"
+                      >
+                        <path d="M11 7a1 1 0 0 0-1-1H4v14h14v-6a1 1 0 1 0-2 0v4H6V8h4a1 1 0 0 0 1-1Z"></path>
+                        <path
+                          d="M19.01 3.829H20v6.656a1 1 0 1 1-2 0V7.244l-5.293 5.293a1 1 0 0 1-1.414-1.415l5.293-5.292h-3.243a1 1 0 1 1 0-2H19.01Z"
+                        ></path>
+                      </svg>
+                    </div>
+                  </button>
+                </a>
+              </div>
+            </div>
+            <ul class="surfaceUl">
+              <li class="surfaceUlLists">
+                <a class="aList" href="">
+                  <img class="svg4" src="../resources/내가만든레시피.png" />
+                  <span class="surfaceCategory">받은 쪽지함</span>
+                </a>
+              </li>
+              <li class="surfaceUlLists">
+                <a
+                  class="aList"
+                  href="http://127.0.0.1:5500/%EB%82%B4%EA%B0%80%EA%B5%AC%EB%A7%A4%ED%95%9C%EB%A0%88%EC%8B%9C%ED%94%BC/mypurchase.html"
+                >
+                  <img class="svg5" src="../resources/내가구매한레시피.png" />
+                  <span class="surfaceCategory">보낸 쪽지함</span>
+                </a>
+              </li>
+              <li class="surfaceUlLists">
+                <a class="aList" href="">
+                  <img class="svg5" src="../resources/내가찜한레시피.png" />
+                  <span class="surfaceCategory">쪽지 보관함</span>
+                </a>
+              </li>
+            </ul>
+          </nav>
+          <div class="basicShrink">
+            <div class="desktopGrid">
+              <div class="infoWrapper">
+                <div class="infoWrapperInner">
+                  <h3 class="myinfoH3">쪽지</h3>
+                  <div class="flex">
+                    <div class="myInfoDiv">
+                      <button type="button" class="myInfoDivBtn">보내기</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="infoDiv1">
+                <div>
+                  <div class="divInner1">
+                    <strong class="profilePhoto">받는 사람</strong>
+                  </div>
+                  <span class="profileStatement">받는 사람을 선택해주세요</span>
+                </div>
+              </div>
+              <div class="infoDiv2">
+                <div class="flex">
+                  <div class="flex1">
+                    <span class="profileImg">
+                      <img alt="" class="myProfile" sizes="100vw" src="../resources/profile.png" />
+                    </span>
+                  </div>
+                  <div class="flex2">
+                    <div class="flex2Margin">
+                      <button type="button" class="flex2Btn">
+                        이승우
+                        <input type="file" accept="image/png,image/jpeg,image/jpg" class="imageFile" />
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <hr class="flex2Hr" />
+              <div class="infoDiv3">
+                <div>
+              <div class="infoDiv5">
+                <div>
+                  <div class="info5Inner">
+                    <strong class="oneSentence">작성</strong>
+                    <svg viewBox="0 0 8 8" xmlns="http://www.w3.org/2000/svg" class="svgOneSentence">
+                      <circle cx="4" cy="4" r="4"></circle>
+                    </svg>
+                  </div>
+                  <span class="info5Span">작성해주세요.</span>
+                </div>
+              </div>
+              <div class="infoDiv6">
+                <label class="labelText">
+                  <div>
+                    <div class="writingArea">
+                      <textarea id="writeNote" style="resize:none;" onkeyup="nWrite.checkContentLength();" rows="5" cols="55" title="쪽지 내용을 입력해 주세요."></textarea>
+                    </div>
+                </label>
+                  <div class="info6Div">
+                    <div class="textCount">1/1000</div>
+                  </div>
+                </div>
+              </div>
+              <hr class="margin8Hr" />
+                    </div>
+
+              <!-- 여기까지 -->
+            </div>
+          </div>
+        </div>
       </div>
-      <div id="noteContainer"></div>
-      <div id="noteFooter"></div>
-      <img src="https://idus.notion.site/image/https%3A%2F%2Fs3-us-west-2.amazonaws.com%2Fsecure.notion-static.com%2F75c26552-9adb-4dad-84a6-ff22b247daad%2Fsteadio_product_image-10.png?table=block&id=1c51157d-3715-410f-9be9-d22ddb0ce8cc&spaceId=eb70f6c8-2de9-4341-9f8d-c7dc24f88587&width=2000&userId=&cache=v2" style="display: block; object-fit: cover; border-radius: 0px; width: 100%; height: 30vh; opacity: 1; object-position: center 50%;">
+
+      <div class="zIndex0"></div>
     </div>
+    <script src="./myinfo.js"></script>
   </body>
 </html>
