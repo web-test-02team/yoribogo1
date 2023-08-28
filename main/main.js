@@ -13,182 +13,160 @@ paymentSystem.addEventListener("click",()=>{
   window.location.href = "";
 });
 //추천 main.. 선택시 색변경
-const headlinePrimary =document.querySelector(".headlinePrimary");
-const headlineOntent=document.querySelector(".headlineOntent");
-headlineOntent.addEventListener("click",(e)=>{
-  if(e.target.style.color!="#1d1d1e"){
-    e.target.style.color="#1d1d1e"
-    headlinePrimary.style.color="#b9b9bb";
-  }
-})
-headlinePrimary.addEventListener("click",(e)=>{
-  if(e.target.style.color!="#b9b9bb"){
-    e.target.style.color="#1d1d1e"
-    headlineOntent.style.color="#b9b9bb";
-  }
-})
+// const headlinePrimary =document.querySelector(".headlinePrimary");
+// const headlineOntent=document.getElementsByClassName("headlineOntent");
+// function cas(event) {
+//   if (event.target.classList[1] === "headline") {
+//     event.target.classList.remove("headline");
 
+//   } else {
+//     for (let i = 0; i < headlineOntent.length; i++) {
+//       categoryButton[i].classList.remove("headline");
+//     }
+//     event.target.classList.add("headline");
+//   }
+//  }
+// function change() {
+//   for (let i = 0; i < headlineOntent.length; i++) {
+//     headlineOntent[i].addEventListener("click", cas);
+//   }
+// }
+
+// change();
 // 요리 분류 선택시 색..등등 변경
-const categoryButtonFirst=document.querySelector(".categoryButtonFirst");
-const categoryButton=document.querySelectorAll(".categoryButton");
-categoryButton.forEach((e)=>{
-  e.addEventListener("click",()=>{
-    if(!e.style.backgroundColor!="#7e69fe"){
-      e.style.cssText =`#7e69fe,
-      padding-top: 9px;
-      padding-bottom: 9px;
-      padding-left: 12px;
-      padding-right: 12px;
-      font-weight: 700;
-      font-size: 14px;
-      line-height: 18px;
-      color: #fff;
-      fill: #fff;
-      background-color: #7e69fe;`
-      categoryButtonFirst.style.cssText=`
-      padding-left: 11px;
-      padding-right: 11px;
-      padding-top: 8px;
-      padding-bottom: 8px;
-      border-width: 1px;
-      font-weight: 400;
-      font-size: 14px;
-      line-height: 18px;
-      color: #1d1d1e;
-      fill: #1d1d1e;
-      border-color: #e6e6e7;
-      background-color : white;`
+const categoryButton = document.getElementsByClassName("categoryButton");
+function handleClick(event) {
+  console.log(event.target.classList);
+  if (event.target.classList[1] === "clicked") {
+    event.target.classList.remove("clicked");
+
+  } else {
+    for (let i = 0; i < categoryButton.length; i++) {
+      categoryButton[i].classList.remove("clicked");
     }
-  })
-})
+    event.target.classList.add("clicked");
+  }
+}
+function init() {
+  for (let i = 0; i < categoryButton.length; i++) {
+    categoryButton[i].addEventListener("click", handleClick);
+  }
+}
+init();
+
 // 슬라이드 배너
 function autoSlide() {
-  // 이동되는 데 걸리는 시간은 0.5초
   swiperWrap.style.transition = "transform 0.5s";
-  // 마지막 슬라이드일 때
-  // 6번 뒤에 1번 배치시킨다.
-  // 6번에서 1번으로 슬라이드 진행
-  // 0s를 줘서 원래 1번 위치로 이동(슬라이드 효과는 안보임)
   count++;
-  if (count == 4) {
-    buttons[count - 1].style.backgroundColor = "#f0f0f0";
-    banner.style.transform = "translate(-" + 90 * (count + 1) + "vw)";
+  if (count == 3) {
+    number=1;
+    numberLabelBold.innerText=`${number}`;
+    swiperWrap.style.transform = "translate(-" + 559.333 * (count + 1) + "px)";
     setTimeout(function () {
-      banner.style.transition = "transform 0s";
-      banner.style.transform = "translate(-90vw)";
+      swiperWrap.style.transition = "transform 0s";
+      swiperWrap.style.transform = "translate(-559.333px)";
     }, 500);
     count = 0;
-    buttons[count].style.backgroundColor = "black";
   } else {
-    // 처음에는 첫번째 배너가 선택되어 있기 때문에 다음으로 넘어가면서 이전 배너부분의 버튼 색을 돌려준다.
-    buttons[count - 1].style.backgroundColor = "#f0f0f0";
-    // 이번에 보여질 배너부분의 버튼 색을 검은색으로 돌려준다.
-    buttons[count].style.backgroundColor = "black";
-    // 왼쪽으로 -90 * (count + 1) 만큼 이동한다.
-    // 왜 count에 + 1을 한 것인가? : 가장 앞에 6번 배너부터 시작되기 때문이다.
-    banner.style.transform = "translate(-" + 90 * (count + 1) + "vw)";
+    numberLabelBold.innerText=`${number+1}`
+    number++;
+    swiperWrap.style.transform = "translate(-" + 559.333 * (count + 1) + "px)";
   }
-  // 초기화할 버튼객체를 temp에 담는다.
-  temp = buttons[count];
 }
 
 // 무한 반복
-const banner = document.querySelector("div.banner");
-const buttons = document.querySelectorAll("div.buttons button");
-let count = 0,
-  temp = buttons[count];
-let firstDiv = document.createElement("div");
-let lastDiv = document.createElement("div");
+const swiperWrap = document.querySelector(".swiperWrap");
+const numberLabelBold=document.querySelector(".numberLabelBold");
+const block=document.getElementsByClassName("block");
+//처음 번호 1로 선언
+let number=1;
+numberLabelBold.innerText=`${number}`
+let count = 0
+swiperWrap.style.transform = "translate(-559.333px)";
+// for(let i=0; i< block.length; i++)
+// {console.log(block)};
+// 3초마다 슬라이드 이동
+let inter = setInterval(autoSlide, 3000);
 
-// 가장 마지막에 첫번째 배너를 이어 붙인다, 슬라이드 모션이 자연스럽게 1번으로 돌아가게 하기 위함
-firstDiv.innerHTML = `<img src="001.png">`;
-banner.appendChild(firstDiv);
 
-// 가장 첫번째에 마지막 배너를 이어 붙인다, 이전 버튼 클릭 시 슬라이드 모션이 자연스럽게 6번으로 돌아가게 하기 위함
-lastDiv.innerHTML = `<img src="006.png">`;
-banner.insertBefore(lastDiv, document.querySelector("div.banner div"));
-
-// 첫번째 버튼이 무조건 첫번째 배너이기 때문에 검은색 칠하고 시작
-buttons[count].style.backgroundColor = "black";
-
-// 첫번째 배너는 6번이니까 왼쪽으로 한 번 밀어서 1번 보이게 함.
-banner.style.transform = "translate(-90vw)";
-
-// 4초마다 슬라이드 이동
-let inter = setInterval(autoSlide, 4000);
-
-// 원하는 번호의 배너 보기
-// 각 버튼마다 클릭 이벤트 적용
-
-// 버튼을 광클하지 못하게 막아주는 FLAG
-let numberButtonCheck = true;
-
-buttons.forEach((v, i, btns) => {
-  // 각 버튼에 click이벤트를 걸어줌.
-  btns[i].addEventListener("click", function () {
-    // 아래의 얍삽한 방법으로 인해 0s로 변할 수 있기 때문에 무조건 0.5s로 설정하고 시작
-    banner.style.transition = "transform 0.5s";
-    if (numberButtonCheck) {
-      // 0.5초가 지나고 나서 클릭했거나 처음 클릭하거나
-      numberButtonCheck = false; // 누르자마자 바로 false
-      clearInterval(inter); // autoSlide 타이머 제거, 동시에 돌아가면 안됨.
-      count = i; // 클릭한 버튼의 인덱스를 배너의 번호로 설정
-      temp.style.backgroundColor = "#f0f0f0"; // 이전에 적용된 버튼의 배경을 원상복구.
-      buttons[count].style.backgroundColor = "black"; // 클릭한 버튼의 배경을 검은색.
-      banner.style.transform = "translate(-" + 90 * (count + 1) + "vw)"; // 클릭한 버튼의 인덱스번호를 통해 배너번호로 이동
-      temp = buttons[count]; // 지금 선택된 버튼 객체 담아주기
-      inter = setInterval(autoSlide, 4000); //버튼 클릭 다했으니까 auto slide 다시 작동
-      // 클릭하고 나서 할 거 다 하고 0.5초 후에 FLAG를 true로 변경
-      // 0.5초 안에는 다시 클릭 못하게 막아주기
-      setTimeout(function () {
-        numberButtonCheck = true;
-      }, 500);
-    }
-  });
-});
 
 // 이전 버튼, 다음 버튼 구현
-const arrows = document.querySelectorAll("div.arrow");
+const arrows = document.querySelectorAll(".nextNumber");
 let arrowButtonCheck = true;
 arrows.forEach((arrow) => {
   arrow.addEventListener("click", function () {
     if (arrowButtonCheck) {
       arrowButtonCheck = false;
       clearInterval(inter);
-      banner.style.transition = "transform 0.5s";
-      let arrowType = arrow.classList[2];
+      swiperWrap.style.transition = "transform 0.5s";
+      let arrowType = arrow.classList[1];
+      // 이전버튼에 클래스 2개 prev로 이전버튼인지 다음버튼인지 확인
       if (arrowType == "prev") {
         count--;
+        number--;
         if (count == -1) {
-          banner.style.transform = "translate(0vw)";
+          swiperWrap.style.transform = "translate(0px)";
           setTimeout(function () {
-            banner.style.transition = "transform 0s";
-            banner.style.transform = "translate(-540vw)";
+            swiperWrap.style.transition = "transform 0s";
+            swiperWrap.style.transform = "translate(-1678px)";
           }, 500);
-          count = 5;
+          count = 2;
+          number=3;
+          numberLabelBold.innerText=`${number}`
         } else {
-          banner.style.transform = "translate(-" + 90 * (count + 1) + "vw)";
+          swiperWrap.style.transform = "translate(-" + 559.333 * (count + 1) + "px)";
+          numberLabelBold.innerText=`${number}`
         }
       } else {
         count++;
-        if (count == 6) {
-          banner.style.transform = "translate(-" + 90 * (count + 1) + "vw)";
+        number++;
+        if (count == 3) {
+          swiperWrap.style.transform = "translate(-" + 559.333 * (count + 1) + "px)";
           setTimeout(function () {
-            banner.style.transition = "transform 0s";
-            banner.style.transform = "translate(-90vw)";
+            swiperWrap.style.transition = "transform 0s";
+            swiperWrap.style.transform = "translate(-559.333px)";
           }, 500);
           count = 0;
+          number=1;
+          numberLabelBold.innerText=`${number}`
         } else {
-          banner.style.transform = "translate(-" + 90 * (count + 1) + "vw)";
+          swiperWrap.style.transform = "translate(-" + 559.333 * (count + 1) + "px)";
+          numberLabelBold.innerText=`${number}`
         }
       }
-      temp.style.backgroundColor = "#f0f0f0";
-      temp = buttons[count];
-      buttons[count].style.backgroundColor = "black";
-      inter = setInterval(autoSlide, 4000);
+      inter = setInterval(autoSlide, 3000);
       setTimeout(function () {
         arrowButtonCheck = true;
       }, 500);
     }
   });
 });
+//검색 버튼, x 버튼 클릭 이벤트 
+const wrapNext=document.querySelector("#wrapNext");
+const searchWrap=document.querySelector(".searchWrap")
+function searchButton(){
+  wrapNext.style.display="none"
+  searchWrap.style.display="block"
+}
+function closeX(){
+  searchWrap.style.display="none"
+  wrapNext.style.display="block";
+}
+// 요리 목록 after버튼 눌르시 before 생성 끝까지가면 after none
+const before =document.getElementsByClassName("before");
+console.log(before)
+const after =document.getElementsByClassName("after");
+const swiperWraps=document.getElementsByClassName("swiperWrap")
+console.log(swiperWraps[1])
+function afterClick(){
+  let counts=1;
+  before[0].style.display="flex";
+  swiperWraps[1].style.transition = "transform 0.2s"
+    counts++;
+    if (counts == 3) {
+      console.log(after[0])
+      after[0].style.display="none";
+    } else {
+      swiperWraps[1].style.transform = "translate(-" + 560 * (count + 1) + "px)";
+    }
+  }
