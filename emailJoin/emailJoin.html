@@ -12,8 +12,8 @@
       <div class="halfScreen">  <!-- div class="w-[100%] ... lg:py-[56px]" -->
         <div class="nav"> <!-- div class="px-[32px] w-full lg:px-[40px]" -->
           <button type="button" class="backButton">
-            <div class="arrowBackwards">
-              <svg viewBox="0 0 17 16" xmlns="http://www.w3.org/2000/svg" height="16px" width="16px" class="mr-[4px] shrink-0"><path d="M13.833 8a.667.667 0 0 0-.666-.667H5.72L8.973 4.08a.667.667 0 1 0-.943-.943L3.167 8l4.863 4.863a.665.665 0 0 0 .94-.94L5.72 8.667h7.447A.667.667 0 0 0 13.833 8Z"></path></svg>
+            <div class="arrowBackwards"> <!-- id="arrowButton" onmouseover="mouse_over()" onmouseout="mouse_out()" -->
+              <svg viewBox="0 0 17 16" xmlns="http://www.w3.org/2000/svg" height="16px" width="16px" class="backWards"><path d="M13.833 8a.667.667 0 0 0-.666-.667H5.72L8.973 4.08a.667.667 0 1 0-.943-.943L3.167 8l4.863 4.863a.665.665 0 0 0 .94-.94L5.72 8.667h7.447A.667.667 0 0 0 13.833 8Z"></path></svg>
               <div>뒤로</div>
             </div>
           </button>
@@ -50,7 +50,7 @@
                 <div class="agreeBox">
                   <div class="agreeTextLine">
                     <label class="agreeAllLine">
-                      <input type="checkbox" class="checkOptionAll" value="all">
+                      <input type="checkbox" name="checkAll" class="checkOptionAll" value="all" onclick="selectAll(this)">
                       <div class="chekBoxBorder">
                         <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" class="content">
                           <path fill-rule="evenodd" clip-rule="evenodd" d="M19.702 7.288a1 1 0 0 1 .01 1.414l-8.59 8.723-5.834-5.923a1 1 0 0 1 1.424-1.404l4.41 4.477 7.166-7.277a1 1 0 0 1 1.414-.01Z"></path></svg>
@@ -65,7 +65,7 @@
                   </div>
                   <div class="essentialSelectBox">
                     <label class="adultCheckLine">
-                      <input type="checkbox" class="checkOption" value="adultCheck">
+                      <input type="checkbox" name="check" class="checkOption" value="adultCheck" onclick="checkSelectAll()">
                       <div class="chekBoxBorder">
                         <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" class="content">
                           <path fill-rule="evenodd" clip-rule="evenodd" d="M19.702 7.288a1 1 0 0 1 .01 1.414l-8.59 8.723-5.834-5.923a1 1 0 0 1 1.424-1.404l4.41 4.477 7.166-7.277a1 1 0 0 1 1.414-.01Z"></path></svg>
@@ -77,7 +77,7 @@
                       </div>
                     </label>
                     <label class="termsCheckLine">
-                      <input type="checkbox" class="checkOption" value="termsCheck">
+                      <input type="checkbox" name="check" class="checkOption" value="termsCheck" onclick="checkSelectAll()">
                       <div class="chekBoxBorder">
                         <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" class="content">
                           <path fill-rule="evenodd" clip-rule="evenodd" d="M19.702 7.288a1 1 0 0 1 .01 1.414l-8.59 8.723-5.834-5.923a1 1 0 0 1 1.424-1.404l4.41 4.477 7.166-7.277a1 1 0 0 1 1.414-.01Z"></path></svg>
@@ -85,19 +85,18 @@
                       <div class="termsCheckText">
                         <div class="termsCheck">
                           <span class="essential">[필수] 요리보고 이용약관</span>
-                          <a target="_blank" href="https://steadio.zendesk.com/hc/ko/articles/6674963349145" class="look"> <!-- 약관페이지는 추후 생성 후 재 링크예정 -->
+                          <a target="_blank" href="" class="look"> 
                             <div class="lookColor">
-                              <span class="lookText">보기
+                              <span class="lookText">보기</span>
                                 <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" class="specialCharacter">
                                   <path fill-rule="evenodd" clip-rule="evenodd" d="M8.42 20.73a1.076 1.076 0 0 1-.13-1.587L14.832 12 8.289 4.857a1.076 1.076 0 0 1 .13-1.586 1.26 1.26 0 0 1 1.696.122L18 12l-7.885 8.607a1.26 1.26 0 0 1-1.695.122Z"></path></svg>
-                              </span>
                             </div>
                           </a>
                         </div>
                       </div>
                     </label>
                     <label class="collectionUseCheckLine">
-                      <input type="checkbox" class="checkOption" value="useCheck">
+                      <input type="checkbox" name="check" class="checkOption" value="useCheck" onclick="checkSelectAll()">
                       <div class="chekBoxBorder">
                         <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" class="content">
                           <path fill-rule="evenodd" clip-rule="evenodd" d="M19.702 7.288a1 1 0 0 1 .01 1.414l-8.59 8.723-5.834-5.923a1 1 0 0 1 1.424-1.404l4.41 4.477 7.166-7.277a1 1 0 0 1 1.414-.01Z"></path></svg>
@@ -105,19 +104,18 @@
                       <div class="collectionUseCheckText">
                         <div class="collectionUseCheck">
                           <span class="essential">[필수] 개인정보 수집 및 이용</span>
-                          <a target="_blank" href="https://steadio.zendesk.com/hc/ko/articles/7780125852697" class="collection"> <!-- 약관페이지는 추후 생성 후 재 링크예정 -->
+                          <a target="_blank" href="" class="collection"> 
                             <div class="collectionUseColor">
-                              <span class="collectionUseText">보기
+                              <span class="collectionUseText">보기</span>
                                 <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" class="specialCharacter">
                                   <path fill-rule="evenodd" clip-rule="evenodd" d="M8.42 20.73a1.076 1.076 0 0 1-.13-1.587L14.832 12 8.289 4.857a1.076 1.076 0 0 1 .13-1.586 1.26 1.26 0 0 1 1.696.122L18 12l-7.885 8.607a1.26 1.26 0 0 1-1.695.122Z"></path></svg>
-                              </span>
                             </div>
                           </a>
                         </div>
                       </div>
                     </label>
                     <label class="infoAgreeCheckLine">
-                      <input type="checkbox" class="checkOption" value="infoCheck">
+                      <input type="checkbox" name="check" class="checkOption" value="infoCheck" onclick="checkSelectAll()">
                       <div class="chekBoxBorder">
                         <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" class="content">
                           <path fill-rule="evenodd" clip-rule="evenodd" d="M19.702 7.288a1 1 0 0 1 .01 1.414l-8.59 8.723-5.834-5.923a1 1 0 0 1 1.424-1.404l4.41 4.477 7.166-7.277a1 1 0 0 1 1.414-.01Z"></path></svg>
@@ -125,19 +123,18 @@
                       <div class="infoAgreeCheckText">
                         <div class="infoAgreeCheck">
                           <span class="essential">[선택] 개인정보 제3자 제공 동의</span>
-                          <a target="_blank" href="https://steadio.zendesk.com/hc/ko/articles/7780125852697" class="info"> <!-- 약관페이지는 추후 생성 후 재 링크예정 -->
+                          <a target="_blank" href="" class="info">
                             <div class="infoAgreeColor">
-                              <span class="infoAgreeText">보기
+                              <span class="infoAgreeText">보기</span>
                                 <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" class="specialCharacter">
                                   <path fill-rule="evenodd" clip-rule="evenodd" d="M8.42 20.73a1.076 1.076 0 0 1-.13-1.587L14.832 12 8.289 4.857a1.076 1.076 0 0 1 .13-1.586 1.26 1.26 0 0 1 1.696.122L18 12l-7.885 8.607a1.26 1.26 0 0 1-1.695.122Z"></path></svg>
-                              </span>
                             </div>
                           </a>
                         </div>
                       </div>
                     </label>
                     <label class="marketingCheckLine">
-                      <input type="checkbox" class="checkOption" value="marketingCheck">
+                      <input type="checkbox" name="check" class="checkOption" value="marketingCheck" onclick="checkSelectAll()">
                       <div class="chekBoxBorder">
                         <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" class="content">
                           <path fill-rule="evenodd" clip-rule="evenodd" d="M19.702 7.288a1 1 0 0 1 .01 1.414l-8.59 8.723-5.834-5.923a1 1 0 0 1 1.424-1.404l4.41 4.477 7.166-7.277a1 1 0 0 1 1.414-.01Z"></path></svg>
@@ -148,7 +145,7 @@
                         </div>
                       </div>
                     </label>
-                    <p id="result"></p>
+                    <!-- <p id="result"></p> -->
                   </div>
                 </div>
               </div>
@@ -159,9 +156,9 @@
       </div>
       <div class="hiddenBlock">
         <div class="screenFull picture">
-          <span style="box-sizing: border-box; display: block; overflow: hidden; width: initial; height: initial; background: none; opacity: 1; border: 0px; margin: 0px; padding: 0px; position: absolute; inset: 0px;" class="screenFull foodPicture">
-            <img sizes="100vw" srcset="/image/food3.png 640w, /image/food3.png 750w, /image/food3.png 828w, /image/food3.png 1080w, /image/food3.png 1200w, /image/food3.png 1920w, /image/food3.png 2048w, /image/food3.png 3840w" alt="yoribogo intro imgage" src="image/food3.png"
-            decoding="async" data-nimg="fill" style="position: absolute; inset: 0px;     box-sizing: border-box; padding: 0px; border: none; margin: auto; display: block; width: 0px; height: 0px; min-width: 100%; max-width: 100%; min-height: 100%; max-height: 100%; object-fit: cover; object-position: center center;">
+          <span style="box-sizing: border-box; display: block; overflow: hidden; width: initial; height: initial; background: none; opacity: 1; border: 0px; margin: 0px; padding: 0px; position: absolute; inset: 0px;">
+            <img sizes="100vw" alt="yoribogo intro imgage" src="/image/food3.png"
+            decoding="async" data-nimg="fill" style="position: absolute; inset: 0px; box-sizing: border-box; padding: 0px; border: none; margin: auto; display: block; width: 0px; height: 0px; min-width: 100%; max-width: 100%; min-height: 100%; max-height: 100%; object-fit: cover; object-position: center center;">
           </span>
         </div>
       </div>
