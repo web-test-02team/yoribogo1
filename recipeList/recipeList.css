@@ -289,6 +289,14 @@ audio, canvas, embed, iframe, img, object, svg, video {
 }
 
 .spanFree {
+  font-weight: 400;
+  font-size: 15px;
+  line-height: 20px;
+  color: #8a8a8b;
+  fill: #8a8a8b;
+}
+
+input[class="freeListCategory"]:checked + .spanFree {
   font-weight: 700;
   font-size: 15px;
   line-height: 20px;
@@ -318,6 +326,14 @@ audio, canvas, embed, iframe, img, object, svg, video {
   line-height: 20px;
   color: #8a8a8b;
   fill: #8a8a8b;
+}
+
+input[class="payListCategory"]:checked + .spanPay {
+  font-weight: 700;
+  font-size: 15px;
+  line-height: 20px;
+  color: #1d1d1e;
+  fill: #1d1d1e;
 }
 
 .filterBtn {
@@ -566,7 +582,19 @@ audio, canvas, embed, iframe, img, object, svg, video {
   border-radius: 33px;
   cursor: pointer;
   position: relative;
-  border-color: #7e69fe;
+  border-color: rgb(230, 230, 231);
+}
+
+.filterItem:has(input[class="catagoryInput"]:checked) {
+  padding-top: 9px;
+  padding-bottom: 9px;
+  padding-left: 12px;
+  padding-right: 12px;
+  border-width: 1px;
+  border-radius: 33px;
+  cursor: pointer;
+  position: relative;
+  border-color: rgb(126 105 254);
 }
 
 .catagoryInput {
@@ -579,6 +607,14 @@ audio, canvas, embed, iframe, img, object, svg, video {
 }
 
 .catagoryName {
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 18px;
+  color: #1d1d1e;
+  fill: #1d1d1e;
+}
+
+input[class="catagoryInput"]:checked + .catagoryName {
   font-weight: 700;
   font-size: 14px;
   line-height: 18px;
@@ -620,3 +656,71 @@ audio, canvas, embed, iframe, img, object, svg, video {
   background-color: rgba(0,0,0,.4);
 }
 
+.warningWindowWrap {
+  display: none;
+  z-index: 0;
+}
+
+.warningWindow {
+  box-shadow: var(--tw-ring-offset-shadow,0 0 #0000),var(--tw-ring-shadow,0 0 #0000),var(--tw-shadow);
+  --tw-shadow: 0px 2px 8px rgba(0,0,0,.08);
+  --tw-shadow-colored: 0px 2px 8px var(--tw-shadow-color);
+  padding-top: 16px;
+  padding-bottom: 16px;
+  padding-left: 20px;
+  padding-right: 20px; 
+  border-radius: 8px;
+  flex-direction: column;
+  transform: translate(var(--tw-translate-x),var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+  --tw-translate-y: -50%;
+  --tw-translate-x: -50%;
+  max-width: 328px;
+  display: flex;
+  box-sizing: border-box;
+  z-index: 50;
+  top: 50%;
+  left: 50%;
+  position: fixed;
+  background-color: #333334;
+}
+
+@keyframes slideUp {
+  0% {
+    opacity: 0;
+    transform: translate(-50%,100%);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translate(-50%,-50%);
+  }
+}
+
+@keyframes slideDown {
+  0% {
+    opacity: 1;
+    transform: translate(-50%,-50%);
+  }
+
+  100% {
+    opacity: 0;
+    transform: translate(-50%,100%);
+  }
+}
+
+.slideUp {
+  animation: slideUp 0.2s  ease-in-out;
+}
+
+.slideDown {
+  animation: slideDown 0.2s  ease-in-out;
+}
+
+.warning {
+  text-align: left;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 18px;
+  color: #fff;
+  fill: #fff;
+}
