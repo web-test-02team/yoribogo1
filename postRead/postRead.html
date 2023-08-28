@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>요리보고 Yoribogo</title>
+  <link rel="stylesheet" href="postRead.css">
+</head>
+<body>
+  <div id="__next">
+    <div>
+      <!-- 가장 위쪽 nav -->
+      <div class="navWrap">
+        <nav class="logoAndMemberContainer">
+          <div>
+            <div class="logoContainer">
+              <!-- 메인페이지 주소 입력 -->
+              <a href="">
+                <!-- 로고이미지 넣는 곳 -->
+                <img src="" alt="" class="logoImage">
+              </a>
+            </div>
+          </div>
+          <div class="memberWrap">
+            <div class="memberContainer">
+              <button class="memberButton">
+                <span class="memberImageWrap">
+                  <img alt="프로필 이미지" sizes="100vw" src="" class="memberImage">
+                </span>
+              </button>
+            </div>
+          </div>
+        </nav>
+        <!-- 유저 닉네임 -->
+        <h3 class="memberNameBar">코코저널21</h3>
+      </div>
+      <!-- 작성글 -->
+      <div class="postWrap">
+        <main class="postContainer">
+          <div style="height: 12px;"></div>
+          <!-- post제목 가져와 입력 -->
+          <h3 class="postHeader">[저널링챌린지] 21일차! 기억에 남는 웃음거리(~8/28)</h3>
+          <div class="postDataAndSharing">
+            <div class="postData">
+              <div>
+                <!-- 작성자 이미지 클릭 시  -->
+                <a href="">
+                  <div class="writerImage" style="background: url() center center / cover no-repeat, rgb(255, 255, 255);"></div>
+                </a>
+              </div>
+              <div>
+                <div>
+                  <a class="memberName" href="">코코저널21</a>
+                </div>
+                <div class="postInformation">
+                  <p class="public">전체공개</p>
+                  <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" class="circle">
+                    <circle cx="12" cy="12" r="4"></circle>
+                  </svg>
+                  <a class="timeAndHits" href="">
+                    <span>2일 전</span>
+                    <!-- <svg></svg>
+                    <span></span> -->
+                  </a>
+                </div>
+              </div>
+            </div>
+            <div class="sharing"></div>
+          </div>
+          <div></div>
+          <section></section>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <section></section>
+          <section></section>
+        </main>
+      </div>
+      <!-- 밑에 쪽 var-->
+      <footer class="footervarWrap">
+        <div class="footervarContainer">
+          <div class="footervarContent">
+            <div class="likeAndReplyWrap">
+              <div class="likeAndReplyContainer">
+                <!-- value안에 해당계시글 고유아이디? 넣기 -->
+                <button type="button" class="like" value="">
+                  <svg viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg" class="likeImage">
+                    <path fill-rule="evenodd" clip-rule="evenodd" d="M10 5.406 8.616 4.141c-1.383-1.266-3.682-.982-4.941.422-1.581 1.687-1.582 4.543.092 6.328l5.535 5.487a.988.988 0 0 0 1.396 0l5.535-5.487c1.674-1.785 1.674-4.64.092-6.328-1.259-1.404-3.558-1.688-4.941-.422L10 5.406Zm2.284-.281L10 7.214l-2.284-2.09c-.75-.685-2.203-.615-3.049.329l-.01.01-.01.011c-1.079 1.152-1.117 3.198.077 4.49L10 15.191l5.276-5.229c1.194-1.291 1.156-3.336.076-4.489l-.01-.01-.01-.011c-.846-.944-2.299-1.014-3.048-.328Z"></path>
+                  </svg>
+                  <!-- 이 글의 좋아요 받은 갯수 표시 -->
+                  <span class="likeCount">2</span>
+                </button>
+                <button type="button" class="reply" value="">
+                  <svg viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" class="replyImege">
+                    <path clip-rule="evenodd" d="M8.144 13.563v2l2.543-2h2.396a2.74 2.74 0 0 0 2.741-2.74V7.073a2.74 2.74 0 0 0-2.74-2.74h-6.01a2.74 2.74 0 0 0-2.74 2.74v4.012a2.477 2.477 0 0 0 2.477 2.477h1.333Zm-.104 3.778a.815.815 0 0 1-1.23-.702v-1.743A3.81 3.81 0 0 1 3 11.086V7.074A4.074 4.074 0 0 1 7.074 3h6.01a4.074 4.074 0 0 1 4.073 4.074v3.748a4.074 4.074 0 0 1-4.074 4.074h-1.935L8.04 17.341Z"></path>
+                    <path d="M8.167 9a.667.667 0 1 1-1.334 0 .667.667 0 0 1 1.334 0ZM10.667 9a.667.667 0 1 1-1.334 0 .667.667 0 0 1 1.334 0ZM13.167 9a.667.667 0 1 1-1.334 0 .667.667 0 0 1 1.334 0Z"></path>
+                  </svg>
+                  <!-- 이 글의 남겨진 댓글 수 -->
+                  <span class="replyCount">2</span>
+                </button>
+              </div>
+            </div>
+            <div class="moveButtonWrap">
+              <a class="previousA" href="">
+                <svg width="24" height="24" xmlns="http://www.w3.org/2000/svg" class="previousImage">
+                  <path fill-rule="evenodd" clip-rule="evenodd" d="m5.325 9.45 8.858-5.03c2.082-1.183 4.773.266 4.773 2.749V17.23c0 2.482-2.69 3.931-4.773 2.749l-8.858-5.032c-2.14-1.216-2.14-4.281 0-5.497Zm.89 1.566a1.356 1.356 0 0 0 0 2.367l8.857 5.031c.926.527 2.084-.131 2.084-1.183V7.169c0-1.053-1.158-1.71-2.084-1.184l-8.858 5.03Z"></path>
+                </svg>
+              </a>
+              <a href="">
+                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="listImage">
+                  <path d="M6.3 5.8a1.8 1.8 0 1 1-3.6 0 1.8 1.8 0 0 1 3.6 0ZM6.3 11.8a1.8 1.8 0 1 1-3.6 0 1.8 1.8 0 0 1 3.6 0ZM6.3 17.8a1.8 1.8 0 1 1-3.6 0 1.8 1.8 0 0 1 3.6 0ZM8.7 5.8a1.2 1.2 0 0 1 1.2-1.2h10.6a1.2 1.2 0 0 1 0 2.4H9.9a1.2 1.2 0 0 1-1.2-1.2ZM8.7 11.8a1.2 1.2 0 0 1 1.2-1.2h10.6a1.2 1.2 0 0 1 0 2.4H9.9a1.2 1.2 0 0 1-1.2-1.2ZM8.7 17.8a1.2 1.2 0 0 1 1.2-1.2h10.6a1.2 1.2 0 0 1 0 2.4H9.9a1.2 1.2 0 0 1-1.2-1.2Z"></path>
+                </svg>
+              </a>
+              <a class="nextA" href="">
+                <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" class="nextImage">
+                  <path fill-rule="evenodd" clip-rule="evenodd" d="m18.595 14.948-8.858 5.03c-2.082 1.184-4.773-.266-4.773-2.748V7.168c0-2.483 2.69-3.932 4.773-2.75l8.858 5.032c2.14 1.216 2.14 4.282 0 5.498Zm-.89-1.565a1.356 1.356 0 0 0 0-2.368l-8.857-5.03c-.926-.527-2.084.13-2.084 1.183V17.23c0 1.052 1.158 1.71 2.084 1.184l8.858-5.031Z"></path>
+                </svg>
+              </a>
+            </div>
+          </div>
+        </div>
+      </footer>
+    </div>
+  </div>
+</body>
+<script src="postRead.js"></script>
+</html>
