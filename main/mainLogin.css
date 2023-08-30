@@ -107,7 +107,7 @@ a {
 
 .navLogo {
   display: block;
-  width: 104px;
+  width: 150px;
   color: #1d1d1e;
   fill: #1d1d1e;
 }
@@ -128,7 +128,7 @@ a {
   width: 20px;
   height: 20px;
   display: block;
-  vertical-align: middle;
+  /* vertical-align: middle; */
 }
 
 .paymentSystem {
@@ -138,7 +138,11 @@ a {
   color: #333334;
   fill: #333334;
 }
-/* 로그인시 이부분만 달라용 */
+.paymentSystem:hover{
+  color: #5b44ea;
+    fill: #5b44ea;
+}
+/* 로그인시 이부분 없어짐 */
 /* .loginButton {
   padding-left: 15px;
   padding-right: 15px;
@@ -173,7 +177,6 @@ a {
   border-radius: 9999px;
 }
 .loginClick{
-  display: none;
   top: 45px;
   min-width: 204px;
   z-index: 20;
@@ -255,11 +258,14 @@ a {
   fill: #fff;
   background-color: #1d1d1e;
 }
+.postWrite:hover{
+  background-color: #000;
+}
 /* 여기서부터 !!! */
 svg,
 img {
   display: block;
-  vertical-align: middle;
+  /* vertical-align: middle; */
 }
 .recommend {
   padding-top: 32px;
@@ -342,6 +348,7 @@ h1,h2,h3,h4,h5,h6 {
   position: relative;
   transition-property: transform;
 }
+
 .block {
   border-radius: 16px;
   width: 550px;
@@ -349,8 +356,7 @@ h1,h2,h3,h4,h5,h6 {
   transition-duration: 0.5s;
   transition-property: all;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-  /* 투명도 */
-  /* opacity: 0.3; */
+  opacity: 0.3;
   text-align: left;
   overflow: hidden;
   min-width: 320px;
@@ -771,6 +777,10 @@ ol {
   fill: #333334;
   background-color: #fff;
 }
+.seeMore:hover{
+  border-color: #f3f3f4;
+  background-color: #f3f3f4;
+}
 .moreNumber {
   margin-left: 4px;
   color: #333334;
@@ -963,8 +973,8 @@ ol {
   margin-top: 20px;
 }
 .footerLogo {
-  width: 128px;
-  height: 18px;
+  width: 219px;
+    height: 70px;
   color: #333334;
   fill: #333334;
 }
