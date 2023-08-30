@@ -1238,3 +1238,26 @@ a {
   line-height: 16px;
   cursor: default;
 }
+
+.validationWrapper {
+  display: flex;
+  margin-top: 8px;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 16px;
+  color: #de2c2c;
+  fill: #de2c2c;
+}
+
+.validationBox {
+  align-items: center;
+  display: flex;
+  margin-right: auto;
+}
+
+.svgValid {
+  width: 16px;
+  height: 16px;
+  margin-right: 4px;
+  display: block;
+}
