@@ -10,15 +10,6 @@ const spanCount = document.querySelector(".spanCount");
 const postNumber = document.querySelector(".postNumberP");
 const cancelNumber = document.querySelector(".cancelNumberP");
 
-// 게시완료와 임시완료
-const uploadCompleteBtn = document.getElementById("uploadCompleteBar");
-const saveDraftBtn = document.getElementById("saveDraftBar");
-const uploadCompleteUl = document.getElementById("uploadCompleteUl");
-const saveDraftUl = document.getElementById("saveDraftUl");
-// 임시로 페이징 버튼 숨김
-const uploadUnderBar = document.getElementById("uploadUnderBar");
-const saveUnderBar = document.getElementById("saveUnderBar");
-
 // 게시글 개수에 따른 숫자 바꾸기
 spanCount.textContent = recipeLists.length;
 postNumber.textContent = recipeLists.length;
@@ -61,28 +52,6 @@ cancelBtn.addEventListener("click", () => {
   modalDiv.style.display = "none";
 });
 
-saveDraftBtn.addEventListener("click", () => {
-  saveDraftBtn.style.color = "#1d1d1e";
-  uploadCompleteBtn.style.color = "#b9b9bb";
-  saveUnderBar.style.display = "block";
-  uploadUnderBar.style.display = "none";
-  uploadCompleteUl.style.display = "none";
-  saveDraftUl.style.display = "block";
-  spanCount.textContent = cancelLists.length;
-
-  deleteBtns.forEach((btn, index) => {
-    btn.addEventListener("click", () => {
-      modalDiv.style.display = "block";
-
-      confirmBtn.addEventListener("click", () => {
-        cancelLists[index - recipeLists.length].remove();
-        modalDiv.style.display = "none";
-
-        updateCancelCount();
-      });
-    });
-  });
-});
 uploadCompleteBtn.addEventListener("click", () => {
   spanCount.textContent = recipeLists.length;
   saveDraftBtn.style.color = "#b9b9bb";
