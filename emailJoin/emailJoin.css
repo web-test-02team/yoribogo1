@@ -29,8 +29,6 @@ html {
   display: flex;
 }
 
-/* 화면 분할이 되지 않아 이미지 출력되지 않음 */
-
 .halfScreen {
   display: flex;
   flex-direction: column;
@@ -298,7 +296,8 @@ input[class="checkOptionAll"]:checked + .chekBoxBorder {
   height: 20px;
   display: flex;
   border-color: #b9b9bb;
-  background-color: #7e69fe
+  background-color: #7e69fe;
+  cursor: pointer;
 }
 
 input[class="checkOption"]:checked + .chekBoxBorder {
@@ -310,7 +309,8 @@ input[class="checkOption"]:checked + .chekBoxBorder {
   height: 20px;
   display: flex;
   border-color: #b9b9bb;
-  background-color: #7e69fe
+  background-color: #7e69fe;
+  cursor: pointer;
 }
 
 
