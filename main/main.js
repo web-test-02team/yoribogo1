@@ -1,42 +1,22 @@
-const loginButton = document.querySelector(".loginButton");
-const postWrite = document.querySelector(".postWrite");
-const paymentSystem=document.querySelector(".paymentSystem")
+// const loginButton = document.querySelector(".loginButton");
+// const postWrite = document.querySelector(".postWrite");
+// const paymentSystem=document.querySelector(".paymentSystem")
 
-loginButton.addEventListener("click", () => {
-  window.location.href = "";
-})
+// loginButton.addEventListener("click", () => {
+//   window.location.href = "";
+// })
 
-postWrite.addEventListener("click", () => {
-  window.location.href = "";
-})
-paymentSystem.addEventListener("click",()=>{
-  window.location.href = "";
-});
-//추천 main.. 선택시 색변경
-// const headlinePrimary =document.querySelector(".headlinePrimary");
-// const headlineOntent=document.getElementsByClassName("headlineOntent");
-// function cas(event) {
-//   if (event.target.classList[1] === "headline") {
-//     event.target.classList.remove("headline");
+// postWrite.addEventListener("click", () => {
+//   window.location.href = "";
+// })
+// paymentSystem.addEventListener("click",()=>{
+//   window.location.href = "";
+// });
 
-//   } else {
-//     for (let i = 0; i < headlineOntent.length; i++) {
-//       categoryButton[i].classList.remove("headline");
-//     }
-//     event.target.classList.add("headline");
-//   }
-//  }
-// function change() {
-//   for (let i = 0; i < headlineOntent.length; i++) {
-//     headlineOntent[i].addEventListener("click", cas);
-//   }
-// }
 
-// change();
 // 요리 분류 선택시 색..등등 변경
 const categoryButton = document.getElementsByClassName("categoryButton");
 function handleClick(event) {
-  console.log(event.target.classList);
   if (event.target.classList[1] === "clicked") {
     event.target.classList.remove("clicked");
 
@@ -58,33 +38,42 @@ init();
 function autoSlide() {
   swiperWrap.style.transition = "transform 0.5s";
   count++;
+  currentSlide++;
   if (count == 3) {
     number=1;
     numberLabelBold.innerText=`${number}`;
-    swiperWrap.style.transform = "translate(-" + 559.333 * (count + 1) + "px)";
+    swiperWrap.style.transform = "translate(-" + 559.333 * (count + 2) + "px)";
     setTimeout(function () {
       swiperWrap.style.transition = "transform 0s";
-      swiperWrap.style.transform = "translate(-559.333px)";
+      swiperWrap.style.transform = "translate(-1118.67px)";
     }, 500);
     count = 0;
+    currentSlide=0;
+    blocks[currentSlide+3].style.opacity= 1;
   } else {
     numberLabelBold.innerText=`${number+1}`
     number++;
-    swiperWrap.style.transform = "translate(-" + 559.333 * (count + 1) + "px)";
+    swiperWrap.style.transform = "translate(-" + 559.333 * (count + 2) + "px)";
+    blocks[currentSlide+3].style.opacity= 1;
+    blocks[currentSlide+4].style.opacity= 0.3;
+    blocks[currentSlide+2].style.opacity= 0.3;
   }
 }
 
 // 무한 반복
 const swiperWrap = document.querySelector(".swiperWrap");
 const numberLabelBold=document.querySelector(".numberLabelBold");
-const block=document.getElementsByClassName("block");
-//처음 번호 1로 선언
+const blocks=document.querySelectorAll(".block");
+//처음 번호 1로 선언 슬라이더배너  숫자 증가시키기 위해 선언
 let number=1;
 numberLabelBold.innerText=`${number}`
 let count = 0
-swiperWrap.style.transform = "translate(-559.333px)";
-// for(let i=0; i< block.length; i++)
-// {console.log(block)};
+// 슬라이드배너 색 선명도 변수선언 이렇게 하면 안될꺼 같은데..
+let currentSlide=0;
+blocks[currentSlide+3].style.opacity= 1;
+swiperWrap.style.transform="translate(-1118.67px)"
+
+
 // 3초마다 슬라이드 이동
 let inter = setInterval(autoSlide, 3000);
 
@@ -104,34 +93,46 @@ arrows.forEach((arrow) => {
       if (arrowType == "prev") {
         count--;
         number--;
+        currentSlide--;
         if (count == -1) {
-          swiperWrap.style.transform = "translate(0px)";
+          swiperWrap.style.transform = "translate(-559.333px)";
           setTimeout(function () {
             swiperWrap.style.transition = "transform 0s";
-            swiperWrap.style.transform = "translate(-1678px)";
+            swiperWrap.style.transform = "translate(-2237.33px)";
           }, 500);
           count = 2;
+          currentSlide=2;
           number=3;
+          blocks[currentSlide+3].style.opacity= 1;
           numberLabelBold.innerText=`${number}`
         } else {
-          swiperWrap.style.transform = "translate(-" + 559.333 * (count + 1) + "px)";
+          swiperWrap.style.transform = "translate(-" + 559.333 * (count + 2) + "px)";
           numberLabelBold.innerText=`${number}`
+          blocks[currentSlide+3].style.opacity= 1;
+          blocks[currentSlide+4].style.opacity= 0.3;
+          blocks[currentSlide+2].style.opacity= 0.3;
         }
       } else {
         count++;
         number++;
+        currentSlide++;
         if (count == 3) {
-          swiperWrap.style.transform = "translate(-" + 559.333 * (count + 1) + "px)";
+          swiperWrap.style.transform = "translate(-" + 559.333 * (count + 2) + "px)";
           setTimeout(function () {
+            blocks[currentSlide+3].style.opacity= 1;
             swiperWrap.style.transition = "transform 0s";
-            swiperWrap.style.transform = "translate(-559.333px)";
+            swiperWrap.style.transform = "translate(-1118.67px)";
           }, 500);
           count = 0;
           number=1;
+        currentSlide=0;
           numberLabelBold.innerText=`${number}`
         } else {
-          swiperWrap.style.transform = "translate(-" + 559.333 * (count + 1) + "px)";
+          swiperWrap.style.transform = "translate(-" + 559.333 * (count + 2) + "px)";
           numberLabelBold.innerText=`${number}`
+          blocks[currentSlide+3].style.opacity= 1;
+          blocks[currentSlide+4].style.opacity= 0.3;
+          blocks[currentSlide+2].style.opacity= 0.3;
         }
       }
       inter = setInterval(autoSlide, 3000);
@@ -141,7 +142,7 @@ arrows.forEach((arrow) => {
     }
   });
 });
-//검색 버튼, x 버튼 클릭 이벤트 
+//검색 버튼, x 버튼 클릭 이벤트  
 const wrapNext=document.querySelector("#wrapNext");
 const searchWrap=document.querySelector(".searchWrap")
 function searchButton(){
@@ -152,21 +153,123 @@ function closeX(){
   searchWrap.style.display="none"
   wrapNext.style.display="block";
 }
+
 // 요리 목록 after버튼 눌르시 before 생성 끝까지가면 after none
 const before =document.getElementsByClassName("before");
-console.log(before)
 const after =document.getElementsByClassName("after");
-const swiperWraps=document.getElementsByClassName("swiperWrap")
-console.log(swiperWraps[1])
-function afterClick(){
-  let counts=1;
-  before[0].style.display="flex";
-  swiperWraps[1].style.transition = "transform 0.2s"
-    counts++;
-    if (counts == 3) {
-      console.log(after[0])
-      after[0].style.display="none";
-    } else {
-      swiperWraps[1].style.transform = "translate(-" + 560 * (count + 1) + "px)";
-    }
+const swiperWraps=document.getElementsByClassName("swiperWrap");
+const maxIndex = Math.ceil((swiperWraps[1].childElementCount - 4) / 4);
+
+let currentSlideIndex = 0;
+function updateButtonStates() {
+  before[0].style.display = currentSlideIndex === 0 ? "none" : "flex";
+  after[0].style.display = currentSlideIndex >= maxIndex ? "none" : "flex";
+}
+
+function goToSlide(index) {
+  swiperWraps[1].style.transform = "translate(-" +(560 * index)+"px)";
+  currentSlideIndex = index;
+  updateButtonStates();
+}
+// before 버튼
+before[0].addEventListener("click", () => {
+  if (currentSlideIndex > 0) {
+    swiperWraps[1].style.transition="transform 300ms"
+    goToSlide(currentSlideIndex - 1);
   }
+});
+// after 버튼
+after[0].addEventListener("click", () => {
+  if (currentSlideIndex < maxIndex) {
+    swiperWraps[1].style.transition="transform 300ms"
+    goToSlide(currentSlideIndex + 1);
+  }
+});
+
+// 초기화
+updateButtonStates();
+
+// 세로운 요리 버튼
+const maxIndexNew = Math.ceil((swiperWraps[2].childElementCount - 4) / 4);
+let currentSlideIndexNew = 0;
+function updateButtonStatesNew() {
+  before[1].style.display = currentSlideIndexNew === 0 ? "none" : "flex";
+  after[1].style.display = currentSlideIndexNew >= maxIndexNew ? "none" : "flex";
+}
+
+function goToSlideNew(index) {
+  swiperWraps[2].style.transform = "translate(-" +(560 * index)+"px)";
+  currentSlideIndexNew = index;
+  updateButtonStatesNew();
+}
+// before 버튼
+before[1].addEventListener("click", () => {
+  if (currentSlideIndexNew > 0) {
+    swiperWraps[2].style.transition="transform 300ms"
+    goToSlideNew(currentSlideIndexNew - 1);
+  }
+});
+// after 버튼
+after[1].addEventListener("click", () => {
+  if (currentSlideIndexNew < maxIndexNew) {
+    swiperWraps[2].style.transition="transform 300ms"
+    goToSlideNew(currentSlideIndexNew + 1);
+  }
+});
+
+// 초기화
+updateButtonStatesNew();
+
+// 요리분류 버튼
+// after 버튼
+const maxIndexDiv = Math.ceil((swiperWraps[3].childElementCount - 4) / 4);
+let currentSlideIndexDiv = 0;
+function updateButtonStatesDiv() {
+  before[2].style.display = currentSlideIndexDiv === 0 ? "none" : "flex";
+  after[2].style.display = currentSlideIndexDiv >= maxIndexDiv ? "none" : "flex";
+}
+
+function goToSlideDiv(index) {
+  swiperWraps[3].style.transform = "translate(-" +(560 * index)+"px)";
+  currentSlideIndexDiv = index;
+  updateButtonStatesDiv();
+}
+// before 버튼
+before[2].addEventListener("click", () => {
+  if (currentSlideIndexDiv > 0) {
+    swiperWraps[3].style.transition="transform 300ms"
+    goToSlideDiv(currentSlideIndexDiv - 1);
+  }
+});
+// after 버튼
+after[2].addEventListener("click", () => {
+  if (currentSlideIndexDiv < maxIndexDiv) {
+    swiperWraps[3].style.transition="transform 300ms"
+    goToSlideDiv(currentSlideIndexDiv + 1);
+  }
+});
+
+// 초기화
+updateButtonStatesDiv();
+
+// 더보기 이벤트
+// const seeMore =document.querySelector(".seeMore");
+// const moreNumber=document.querySelector(".moreNumber");
+// let addNumber=1;
+// seeMore.addEventListener("click",()=>{
+//   moreNumber.innerText="더보기"+`${++addNumber}`
+//   if(addNumber==6){
+//     addNumber=0;
+//     moreNumber.innerText="더보기"+`${++addNumber}`
+//   }
+// })
+
+// 검색창 시간
+const ingiTime=document.querySelector(".ingiTime");
+const currentTime = new Date();
+const hours = currentTime.getHours()
+console.log(hours)
+if (hours===0) {
+  hours === 24;
+}
+ingiTime.innerText=`${hours}:00 기준`;
