@@ -1,14 +1,38 @@
-  const openModalButton = document.getElementById('openModalButton');
-  const closeModalButton = document.getElementById('closeModalButton');
-  const modalWindowWrap = document.getElementById('modalWindowWrap');
+const modal = document.getElementById("modalWindowWrap");
 
-  openModalButton.addEventListener('click', () => {
-    modalWindowWrap.classList.remove('hidden');
-    // modalWindowWrap.style.display = 'flex';
-  });
+function openModal() {
+  modal.style.display = "block";
+}
 
-  closeModalButton.addEventListener('click', () => {
-    modalWindowWrap.classList.add('hidden');
-    // modalWindowWrap.style.display = 'none';
-  });
+function closeModal() {
+  modal.style.display = "none";
+}
+
+window.onclick = function (e) {
+  if (e.target == modal) {
+    closeModal();
+  }
+}
+
+
+
+// const modal = document.getElementById("modalWindowWrap");
+
+// function openModal() {
+//   modal.style.display = "block";
+// }
+
+// document.getElementById("openModal").addEventListener("click", openModal);
+
+// const checkButton = document.querySelector(".sendCheckButton");
+// checkButton.addEventListener("click", function() {
+//   modal.style.display = "none";
+// });
+
+// window.addEventListener("click", function(e) {
+//   if (e.target == modal) {
+//       modal.style.display = "none";
+//   }
+// });
+
 
