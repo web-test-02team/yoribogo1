@@ -25,6 +25,11 @@ a {
   text-decoration: none;
 }
 
+img {
+  width: 150px;
+  height: 30px;
+}
+
 h1 {
   font-size: 32px;
 }
