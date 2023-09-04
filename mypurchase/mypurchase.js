@@ -97,7 +97,9 @@ const profileModal = document.getElementsByClassName("profileModalWrapper")[0];
 const profileBtn = document.getElementsByClassName("profileBtn")[0];
 let isShow = false;
 
-profileBtn.addEventListener("click", () => {
+profileBtn.addEventListener("click", (event) => {
+  event.stopPropagation(); // 클릭 이벤트 전파를 막습니다.
+
   if (!isShow) {
     console.log(isShow);
     profileModal.style.display = "block";
@@ -109,6 +111,14 @@ profileBtn.addEventListener("click", () => {
   }
 });
 
+// 전체 HTML을 클릭하는 이벤트 리스너 추가
+document.addEventListener("click", (event) => {
+  if (isShow && event.target !== profileModal && event.target !== profileBtn) {
+    console.log(isShow);
+    profileModal.style.display = "none";
+    isShow = false;
+  }
+});
 // 카테고리, 공유, 조회순 모달
 const categoryBtn = document.getElementById("rangeCategoryBtn");
 const shareBtn = document.getElementById("rangeShareBtn");
