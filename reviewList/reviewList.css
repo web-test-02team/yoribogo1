@@ -120,7 +120,8 @@ audio, canvas, embed, iframe, img, object, svg, video {
 
 .navLogo {
   display: block;
-  width: 104px;
+  width: 150px;
+  height: 30px;
   color: #1d1d1e;
   fill: #1d1d1e;
 }
@@ -284,8 +285,45 @@ border-radius: 9999px;
     fill: #1d1d1e;
     background-color: #fff;
 }
-.loginClickButtonHidden{
-  display: none;
+
+.kakaoBtn {
+  padding-top: 2px;
+  padding-bottom: 2px;
+  padding-left: 10px;
+  padding-right: 10px;
+  --tw-bg-opacity: 1;
+  background-color: rgb(255 234 43 / var(--tw-bg-opacity));
+  border-radius: 8px;
+  column-gap: 10px;
+  align-items: center;
+  width: 100%;
+  display: flex;
+  background-image: none;
+}
+
+.kakao1 {
+  width: 20px;
+  height: 20px;
+  color: #1d1d1e;
+  fill: #1d1d1e;
+  display: block;
+}
+
+.kakao2 {
+  text-align: left;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 16px;
+  color: #333334;
+  fill: #333334;
+}
+
+.svgKakao {
+  width: 12px;
+  height: 12px;
+  color: #333334;
+  fill: #333334;
+  display: block;
 }
 /* 이런식으로 한다면 로그인 전에는 안보여야하지 않을까? */
 .postWriteWrap {

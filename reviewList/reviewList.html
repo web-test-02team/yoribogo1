@@ -44,20 +44,9 @@
                     <span class="fontEmail">sejun1227@naver.com</span>
                    </div>
                   </li>
-                  <!-- 이건 짜피 안보이는데 왜 넣어논지 모르겠어요 -->
-                  <li class="loginLi">
-                    <button type="button" class="loginClickButtonHidden">
-                      크리에이터 시작하기
-                    </button>
-                  </li>
                   <li class="loginLi">
                     <button type="button" class="loginClickButton">
-                      메인 페이지
-                    </button>
-                  </li>
-                  <li class="loginLi">
-                    <button type="button" class="loginClickButton">
-                      내 포인트
+                      마이페이지
                     </button>
                   </li>
                   <li class="loginLi">
@@ -70,7 +59,18 @@
                        헬프센터
                     </button>
                   </li>
-                  <li class="loginLi"></li>
+                  <!-- 카카오로그인 시 none 이메일 로그인시 block -->
+                  <li class="loginLi" style="display: none;">
+                    <button type="button" class="kakaoBtn">
+                      <svg viewBox="0 0 17 16" xmlns="http://www.w3.org/2000/svg" class="kakao1">
+                        <path fill-rule="evenodd" clip-rule="evenodd" d="M8.5 2C4.803 2 1.833 4.306 1.833 7.128a5.026 5.026 0 0 0 3.091 4.339l-.636 2.306c-.03.06 0 .151.06.181.061.061.182.061.243 0l2.697-1.79c.394.061.788.091 1.212.091 3.667 0 6.667-2.306 6.667-5.127C15.167 4.306 12.197 2 8.5 2Z"></path>
+                      </svg>
+                      <p class="kakao2">카카오톡 계정 연동하고<br />간편하게 로그인</p>
+                      <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" class="svgKakao">
+                        <path fill-rule="evenodd" clip-rule="evenodd" d="M8.42 20.73a1.076 1.076 0 0 1-.13-1.587L14.832 12 8.289 4.857a1.076 1.076 0 0 1 .13-1.586 1.26 1.26 0 0 1 1.696.122L18 12l-7.885 8.607a1.26 1.26 0 0 1-1.695.122Z"></path>
+                      </svg>
+                    </button>
+                  </li>
                   <li class="loginLi">
                     <button type="button" class="loginClickButton">
                       로그아웃
@@ -897,7 +897,7 @@
           <div class="filtercontent">
             <label class="filterItem">
               <input type="checkbox" class="catagoryInput" checked>
-              <span class="catagoryName" >한식</span>
+              <span class="catagoryName">한식</span>
             </label>
             <label class="filterItem">
               <input type="checkbox" class="catagoryInput" checked>
@@ -913,27 +913,27 @@
             </label>
             <label class="filterItem">
               <input type="checkbox" class="catagoryInput" checked>
-              <span class="catagoryName">술안주</span>
+              <span class="catagoryName">야식</span>
             </label>
             <label class="filterItem">
               <input type="checkbox" class="catagoryInput" checked>
-              <span class="catagoryName">한식</span>
+              <span class="catagoryName">분식</span>
             </label>
             <label class="filterItem">
               <input type="checkbox" class="catagoryInput" checked>
-              <span class="catagoryName">한식</span>
+              <span class="catagoryName">브런치</span>
             </label>
             <label class="filterItem">
               <input type="checkbox" class="catagoryInput" checked>
-              <span class="catagoryName">한식</span>
+              <span class="catagoryName">디저트</span>
             </label>
             <label class="filterItem">
               <input type="checkbox" class="catagoryInput" checked>
-              <span class="catagoryName">한식</span>
+              <span class="catagoryName">다이어트 식단</span>
             </label>
             <label class="filterItem">
               <input type="checkbox" class="catagoryInput" checked>
-              <span class="catagoryName">한식</span>
+              <span class="catagoryName">기타</span>
             </label>
           </div>
           <div style="height: 24px;"></div>

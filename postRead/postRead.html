@@ -23,17 +23,64 @@
             </div>
           </div>
           <div class="memberWrap">
-            <div class="memberContainer">
+            <!-- 로그인 안했을 때 -->
+            <button type="button" class="loginButton" style="display: none;">로그인</button>
+            <!-- 로그인 시 -->
+            <div class="memberContainer" style="display: block;">
               <button class="memberButton">
                 <span class="memberImageWrap">
                   <img alt="프로필 이미지" sizes="100vw" src="/image/postReadImage/basicsImage.png" class="memberImage">
                 </span>
               </button>
+              <!-- 로그인 상태에서 이미지 클릭 시 나오는 리스트 -->
+              <div class="loginClick" style="display: none;">
+                <ul class="loginUl">
+                  <!-- 로그인 정보를 가지고와야함 -->
+                  <li class="loginLi">
+                   <div class="loginInfo">
+                    <span class="fontName">박세준</span>
+                    <span class="fontEmail">sejun1227@naver.com</span>
+                   </div>
+                  </li>
+                  <li class="loginLi">
+                    <button type="button" class="loginClickButton">
+                      마이페이지
+                    </button>
+                  </li>
+                  <li class="loginLi">
+                    <button type="button" class="loginClickButton">
+                      쪽지함
+                    </button>
+                  </li>
+                  <li class="loginLi">
+                    <button type="button" class="loginClickButton">
+                       헬프센터
+                    </button>
+                  </li>
+                  <!-- 카카오로그인 시 none 이메일 로그인시 block -->
+                  <li class="loginLi" style="display: block;">
+                    <button type="button" class="kakaoBtn">
+                      <svg viewBox="0 0 17 16" xmlns="http://www.w3.org/2000/svg" class="kakao1">
+                        <path fill-rule="evenodd" clip-rule="evenodd" d="M8.5 2C4.803 2 1.833 4.306 1.833 7.128a5.026 5.026 0 0 0 3.091 4.339l-.636 2.306c-.03.06 0 .151.06.181.061.061.182.061.243 0l2.697-1.79c.394.061.788.091 1.212.091 3.667 0 6.667-2.306 6.667-5.127C15.167 4.306 12.197 2 8.5 2Z"></path>
+                      </svg>
+                      <p class="kakao2">카카오톡 계정 연동하고<br />간편하게 로그인</p>
+                      <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" class="svgKakao">
+                        <path fill-rule="evenodd" clip-rule="evenodd" d="M8.42 20.73a1.076 1.076 0 0 1-.13-1.587L14.832 12 8.289 4.857a1.076 1.076 0 0 1 .13-1.586 1.26 1.26 0 0 1 1.696.122L18 12l-7.885 8.607a1.26 1.26 0 0 1-1.695.122Z"></path>
+                      </svg>
+                    </button>
+                  </li>
+                  <li class="loginLi">
+                    <button type="button" class="loginClickButton">
+                      로그아웃
+                    </button>
+                  </li>
+                </ul>
+              </div>
             </div>
           </div>
         </nav>
         <!-- 스크롤을 내릴 경우 nav에 유저 닉네임 나타남 -->
-        <h3 class="memberNameBar">이공계연구원 코냉</h3>
+        <h3 class="memberNameBar" style="display: none;">이공계연구원 코냉</h3>
       </div>
       <!-- 작성글 -->
       <div class="postWrap">
@@ -68,6 +115,7 @@
                 </div>
               </div>
             </div>
+            <!-- 공유 -->
             <div class="sharingWrap">
               <div class="sharingContainer">
                 <button type="button">
@@ -202,7 +250,8 @@
             <h4 class="replyHeader">댓글</h4>
             <div style="height: 24px;"></div>
             <div class="replyWriteWrap">
-              <button type="button" class="replyWriteContainer">
+              <!-- 댓글 작성란 클릭 전 -->
+              <button type="button" class="replyWriteBTN" style="display: flex;">
                 <div class="replyerImageButton" style="width: 32px; height: 32px;">
                   <span class="replyImageBorder">
                     <img alt sizes="100vw" src="/image/postReadImage/basicsImage.png" class="replyImage">
@@ -211,9 +260,43 @@
                 </div>
                 <span class="replyExample">댓글을 작성해주세요...</span>
               </button>
+              <!-- 댓글 작성란 클릭 후 -->
+              <div class="replyWriteContainer" style="display: none;">
+                <div class="memberReplyWrap">
+                  <button class="memberReplyImageWrap">
+                    <span class="memberReplyImageContainer">
+                      <!-- 로그인된 회원의 프로필 사진 -->
+                      <img class="memberReplyImage" sizes="100vw" src="/image/postReadImage/basicsImage.png" alt="회원 닉네임">
+                    </span>
+                    <span class="memberReplyImageBorder"></span>
+                  </button>
+                  <div class="memberReplyNicknameWrap">
+                    <!-- 로그인된 회원의 닉네임 -->
+                    <div class="memberReplyNickname">SG</div>
+                    <!-- 게시글 작성자일 style="display: inline-flex;"로 경우 나타남 -->
+                    <div class="showWriterWrap" style="display: none;">
+                      <svg viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg" class="showWriter">
+                        <path d="M5.567 1.748a.5.5 0 0 1 .866 0L7.499 3.59a.5.5 0 0 0 .329.238l2.082.445a.5.5 0 0 1 .268.823L8.754 6.681a.5.5 0 0 0-.125.386l.22 2.118a.5.5 0 0 1-.7.51L6.203 8.83a.5.5 0 0 0-.406 0l-1.946.864a.5.5 0 0 1-.7-.509l.22-2.118a.5.5 0 0 0-.125-.386L1.822 5.097a.5.5 0 0 1 .268-.823l2.082-.445a.5.5 0 0 0 .329-.238l1.066-1.843Z"></path>
+                      </svg>
+                    </div>
+                  </div>
+                </div>
+                <div style="height: 12px;"></div>
+                <div class="replyWriteSpace">
+                  <label class="replyWriteLabel">
+                    <textarea placeholder="댓글을 작성해주세요..." class="replyWrite" style="height: 48px;"></textarea>
+                  </label>
+                </div>
+                <div style="height: 18px;"></div>
+                <div class="cancelAndRegistration">
+                  <button type="button" class="cancel">취소</button>
+                  <button type="button" class="registration" disabled>등록</button>
+                </div>
+              </div>
             </div>
             <div style="height: 33px;"></div>
-            <div class="replyListWrap">
+            <!-- 등록된 댓글이 없을 시 나타남 style="display: flex;" -->
+            <div class="replyListNoneWrap" style="display: none;">
               <svg width="61" height="60" fill="none" xmlns="http://www.w3.org/2000/svg" class="replyListNoneImage">
                 <path d="M43.72 48.738s-5.526 2.538-8.318 3.758c0 0 4.221-9.814-7.929-9.29-8.402.361-19.39 3.005-22.104-9.94-1.926-9.19 3.903-18.456 12.287-22.228C34.081 3.65 53.115 9.673 56.131 29.81c1.155 7.711-5.584 16.104-12.41 18.93Z" fill="#9D8DFF"></path><path d="M25.294 28.023a1.962 1.962 0 1 1-3.924.018 1.962 1.962 0 0 1 3.924-.018ZM32.023 27.993a1.962 1.962 0 1 1-3.925.018 1.962 1.962 0 0 1 3.925-.018ZM38.752 27.962a1.962 1.962 0 1 1-3.925.018 1.962 1.962 0 0 1 3.925-.018Z" fill="#242424"></path>
               </svg>
@@ -223,440 +306,496 @@
                 <p class="replyrecommendation">첫 댓글을 남겨보세요.</p>
               </div>
             </div>
-            <div style="height: 40px;"></div>
+            <!-- 등록된 댓글이 있을 시 나타남 -->
+            <ul class="replyListYesWrap">
+              <li class="replyWrap">
+                <div class="replyContainer">
+                  <div class="replyerImageWrap">
+                    <div>
+                      <button class="memberReplyImageWrap">
+                        <span class="memberReplyImageContainer">
+                          <!-- 댓글 작성한 회원의 프로필 사진 -->
+                          <img class="memberReplyImage" sizes="100vw" src="/image/postReadImage/basicsImage.png" alt="회원 닉네임">
+                        </span>
+                        <span class="memberReplyImageBorder"></span>
+                      </button>
+                    </div>
+                  </div>
+                  <div class="nicknameAndContent">
+                    <div class="nicknameAndDelete">
+                      <div class="memberReplyNicknameWrap">
+                        <!-- 로그인된 회원의 닉네임 -->
+                        <div class="memberReplyNickname">SG</div>
+                        <!-- 게시글 작성자일 경우 style="display: inline-flex;"로 나타남 -->
+                        <div class="showWriterWrap" style="display: none;">
+                          <svg viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg" class="showWriter">
+                            <path d="M5.567 1.748a.5.5 0 0 1 .866 0L7.499 3.59a.5.5 0 0 0 .329.238l2.082.445a.5.5 0 0 1 .268.823L8.754 6.681a.5.5 0 0 0-.125.386l.22 2.118a.5.5 0 0 1-.7.51L6.203 8.83a.5.5 0 0 0-.406 0l-1.946.864a.5.5 0 0 1-.7-.509l.22-2.118a.5.5 0 0 0-.125-.386L1.822 5.097a.5.5 0 0 1 .268-.823l2.082-.445a.5.5 0 0 0 .329-.238l1.066-1.843Z"></path>
+                          </svg>
+                        </div>
+                      </div>
+                      <!-- 본인이 작성한 댓글 삭제 버튼 -->
+                      <button type="button" value="">
+                        <!-- 해당 댓글 아이디 -->
+                        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" class="deleteBTN">
+                          <path d="M5.707 5.707a1 1 0 0 0 0 1.414l4.95 4.95-4.95 4.95a1 1 0 1 0 1.414 1.414l4.95-4.95 4.95 4.95a1 1 0 0 0 1.414-1.414l-4.95-4.95 4.95-4.95a1 1 0 1 0-1.414-1.414l-4.95 4.95-4.95-4.95a1 1 0 0 0-1.414 0Z"></path>
+                        </svg>
+                      </button>
+                    </div>
+                    <div style="height: 5px;"></div>
+                    <div class="replyContent">
+                      <p>
+                        <span>ㅁㄴㅇㄹ</span>
+                      </p>
+                    </div>
+                    <div style="height: 8px;"></div>
+                    <div class="timeAndReplyToReply">
+                      <div class="timeWrap">
+                        <!-- 댓글 작성 시간 -->
+                        <span class="replyTime">39분 전</span>
+                      </div>
+                      <button class="replyToReply" type="button">답글달기</button>
+                    </div>
+                  </div>
+                </div>
+              </li>
+            </ul>
+          </div>
+          <div style="height: 40px;"></div>
+          <div class="gapLine"></div>
+          <div style="height: 28px;"></div>
+          <!-- 작성자의 다른글 목록 -->
+          <section>
+            <h4 class="bottomListHeaderWrap">
+              <div class="bottomListHeader">
+                <!-- 작성자의 닉네임 가져와서 입력 -->
+                <span class="writerName">이공계연구원 코냉</span>님의 최신 포스트
+              </div>
+            </h4>
+            <ul class="bottomListWrap">
+              <li class="bottomList">
+                <div>
+                  <button type="button" class="bottomPost">
+                    <div class="postThumbnail">
+                      <!-- 게시글 정보 가져와서 h2와 p태그 value 채우기 -->
+                      <div class="contentThumbnail">
+                        <h2 class="contentHeader">[포스트판매] 2023년 전기 고려대학교 의과학과/의공학과 실제 입학시험문제 </h2>
+                        <p class="content">안녕하세요. 2023년 전기 고려대학교 대학원 의과학과/의공학과의 실제 입학시험 문제입니다. 해당 포스트 구매시 확인해볼 수 있습니다. PDF 1부로 구성되어 있습니다. 감사합니다.</p>
+                      </div>
+                      <!-- 게시글에 이미지 있을 경우 imageThumbnailWrap클래스 display: block설정 필요 -->
+                      <div class="imageThumbnailWrap" style="display: none;">
+                        <span class="imageThumbnail">
+                          <img alt src="" decoding="async" data-nimg="fill" class="image">
+                        </span>
+                      </div>
+                    </div>
+                    <div class="postThumbnailFooter">
+                      <!-- css속성 background: url() 괄호안에 프로필의 이미지 입력 -->
+                      <div class="postThumbnailwriterImage" style="background: url(/image/postReadImage/writerImage1.png) center center / cover no-repeat, rgb(255, 255, 255);"></div>
+                      <div class="nameTimeHits">
+                        <!-- 닉네임 -->
+                        <span class="nickname">이공계연구원 코냉</span>
+                        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" class="listCircle">
+                          <circle cx="12" cy="12" r="4"></circle>
+                        </svg>
+                        <!-- 등록시간 기준 0시간, 0일, 0달, 0년 전으로 입력 -->
+                        <span class="time">3일 전</span>
+                        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" class="listCircle">
+                          <circle cx="12" cy="12" r="4"></circle>
+                        </svg>
+                        <!-- 뒤의 숫자는 받아서 출력 -->
+                        <span class="hits">조회수 7</span>
+                      </div>
+                    </div>
+                  </button>
+                </div>
+              </li>
+              <li class="bottomList">
+                <div>
+                  <button type="button" class="bottomPost">
+                    <div class="postThumbnail">
+                      <!-- 게시글 정보 가져와서 h2와 p태그 value 채우기 -->
+                      <div class="contentThumbnail">
+                        <h2 class="contentHeader">[포스트판매] 2022년 후기 고려대학교 의과학과/의공학과 실제 입학시험문제</h2>
+                        <p class="content">안녕하세요. 2022년도 후기 고려대학교 대학원 의과학과 및 의공학과의 실제 입학시험문제를 올려드립니다. 해당 포스트 구매시 확인해볼 수 있으며 PDF 파일 1부로 구성되어 있습니다. 감사합니다.</p>
+                      </div>
+                      <!-- 게시글에 이미지 있을 경우 imageThumbnailWrap클래스 display: block설정 필요 -->
+                      <div class="imageThumbnailWrap" style="display: none;">
+                        <span class="imageThumbnail">
+                          <img alt src="" decoding="async" data-nimg="fill" class="image">
+                        </span>
+                      </div>
+                    </div>
+                    <div class="postThumbnailFooter">
+                      <!-- css속성 background: url() 괄호안에 프로필의 이미지 입력 -->
+                      <div class="postThumbnailwriterImage" style="background: url(/image/postReadImage/writerImage1.png) center center / cover no-repeat, rgb(255, 255, 255);"></div>
+                      <div class="nameTimeHits">
+                        <!-- 작성자 닉네임 -->
+                        <span class="nickname">이공계연구원 코냉</span>
+                        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" class="listCircle">
+                          <circle cx="12" cy="12" r="4"></circle>
+                        </svg>
+                        <!-- 등록시간 기준 0시간, 0일, 0달, 0년 전으로 입력 -->
+                        <span class="time">3일 전</span>
+                        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" class="listCircle">
+                          <circle cx="12" cy="12" r="4"></circle>
+                        </svg>
+                        <!-- 뒤의 숫자는 받아서 출력 -->
+                        <span class="hits">조회수 4</span>
+                      </div>
+                    </div>
+                  </button>
+                </div>
+              </li>
+              <li class="bottomList">
+                <div>
+                  <button type="button" class="bottomPost">
+                    <div class="postThumbnail">
+                      <!-- 게시글 정보 가져와서 h2와 p태그 value 채우기 -->
+                      <div class="contentThumbnail">
+                        <h2 class="contentHeader"> [베이직] 대학원 컨설팅의 모든 것 PDF</h2>
+                        <p class="content">안녕하세요. 해당 포스트는 49,800원 멤버십 가입시 제공되는 포스트입니다. 책 1부 및 CV 등 해당되는 부록이 포함되어있으며 각각의 한글/개별 PDF 파일은 포스트 목록에서도 만나보실 수 있습니다. 감사합니다 :)</p>
+                      </div>
+                      <!-- 게시글에 이미지 있을 경우 imageThumbnailWrap클래스 display: block설정 필요 -->
+                      <div class="imageThumbnailWrap" style="display: none;">
+                        <span class="imageThumbnail">
+                          <img alt src="" decoding="async" data-nimg="fill" class="image">
+                        </span>
+                      </div>
+                    </div>
+                    <div class="postThumbnailFooter">
+                      <!-- css속성 background: url() 괄호안에 프로필의 이미지 입력 -->
+                      <div class="postThumbnailwriterImage" style="background: url(/image/postReadImage/writerImage1.png) center center / cover no-repeat, rgb(255, 255, 255);"></div>
+                      <div class="nameTimeHits">
+                        <!-- 작성자 닉네임 -->
+                        <span class="nickname">이공계연구원 코냉</span>
+                        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" class="listCircle">
+                          <circle cx="12" cy="12" r="4"></circle>
+                        </svg>
+                        <!-- 등록시간 기준 0시간, 0일, 0달, 0년 전으로 입력 -->
+                        <span class="time">5일 전</span>
+                        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" class="listCircle">
+                          <circle cx="12" cy="12" r="4"></circle>
+                        </svg>
+                        <!-- 뒤의 숫자는 받아서 출력 -->
+                        <span class="hits">조회수 2</span>
+                      </div>
+                    </div>
+                  </button>
+                </div>
+              </li>
+              <li class="bottomList">
+                <div>
+                  <button type="button" class="bottomPost">
+                    <div class="postThumbnail">
+                      <!-- 게시글 정보 가져와서 h2와 p태그 value 채우기 -->
+                      <div class="contentThumbnail">
+                        <h2 class="contentHeader"> [자료없는 버전] 대학원 컨설팅의 모든 것 PDF 전자책 1부</h2>
+                        <p class="content">안녕하세요 :) 해당 포스트는 <대학원 컨설팅의 모든 것> PDF 전자책 1부 파일이 포함된 포스트로 29,800원 멤버십에 가입해주시는 분들께 제공되는 포스트입니다 :) 책 1부만 포함되어있으며, 부록에 딸린 여러 자료들은 제외되었다는 점 참고바랍니다. 감사합니다 :)</p>
+                      </div>
+                      <!-- 게시글에 이미지 있을 경우 imageThumbnailWrap클래스 display: block설정 필요 -->
+                      <div class="imageThumbnailWrap" style="display: none;">
+                        <span class="imageThumbnail">
+                          <img alt src="" decoding="async" data-nimg="fill" class="image">
+                        </span>
+                      </div>
+                    </div>
+                    <div class="postThumbnailFooter">
+                      <!-- css속성 background: url() 괄호안에 프로필의 이미지 입력 -->
+                      <div class="postThumbnailwriterImage" style="background: url(/image/postReadImage/writerImage1.png) center center / cover no-repeat, rgb(255, 255, 255);"></div>
+                      <div class="nameTimeHits">
+                        <!-- 작성자 닉네임 -->
+                        <span class="nickname">이공계연구원 코냉</span>
+                        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" class="listCircle">
+                          <circle cx="12" cy="12" r="4"></circle>
+                        </svg>
+                        <!-- 등록시간 기준 0시간, 0일, 0달, 0년 전으로 입력 -->
+                        <span class="time">5일 전</span>
+                        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" class="listCircle">
+                          <circle cx="12" cy="12" r="4"></circle>
+                        </svg>
+                        <!-- 뒤의 숫자는 받아서 출력 -->
+                        <span class="hits">조회수 1</span>
+                      </div>
+                    </div>
+                  </button>
+                </div>
+              </li>
+              <li class="bottomList">
+                <div>
+                  <button type="button" class="bottomPost">
+                    <div class="postThumbnail">
+                      <!-- 게시글 정보 가져와서 h2와 p태그 value 채우기 -->
+                      <div class="contentThumbnail">
+                        <h2 class="contentHeader">[족보/포스트 판매] 고려대학교 대학원 의과학과 입학시험 기출문제 족보</h2>
+                        <p class="content">안녕하세요. 해당 포스트는 멤버십 가입과는 별로도 제공되는 자료로 고려대학교 대학원 의과학과 입학시험 기출문제 족보입니다. 포스트 개별 구매권을 구매하시면 열람이 가능합니다. 한글 파일 4개로 구성되어있으며, 아래에 보이는 이미지와 같이 고려대학교 대학원 의과학과 입시시험에서 나왔던 기출문제들을 정리해둔 족보를 다운로드 받으실 수 있습니다. (이미지는 실제 기출문제 족보집에서 예시로 캡쳐된 사진입니다.) 감사합니다 :)</p>
+                      </div>
+                      <!-- 게시글에 이미지 있을 경우 imageThumbnailWrap클래스 display: block설정 필요 -->
+                      <div class="imageThumbnailWrap" style="display: block;">
+                        <span class="imageThumbnail">
+                          <img alt src="/image/postReadImage/imageThumbnail.png" decoding="async" data-nimg="fill" class="image">
+                        </span>
+                      </div>
+                    </div>
+                    <div class="postThumbnailFooter">
+                      <!-- css속성 background: url() 괄호안에 프로필의 이미지 입력 -->
+                      <div class="postThumbnailwriterImage" style="background: url(/image/postReadImage/writerImage1.png) center center / cover no-repeat, rgb(255, 255, 255);"></div>
+                      <div class="nameTimeHits">
+                        <!-- 작성자 닉네임 -->
+                        <span class="nickname">이공계연구원 코냉</span>
+                        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" class="listCircle">
+                          <circle cx="12" cy="12" r="4"></circle>
+                        </svg>
+                        <!-- 등록시간 기준 0시간, 0일, 0달, 0년 전으로 입력 -->
+                        <span class="time">5일 전</span>
+                        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" class="listCircle">
+                          <circle cx="12" cy="12" r="4"></circle>
+                        </svg>
+                        <!-- 뒤의 숫자는 받아서 출력 -->
+                        <span class="hits">조회수 10</span>
+                      </div>
+                    </div>
+                  </button>
+                </div>
+              </li>
+            </ul>
+            <!-- 목록이 6개 이상일때 block -->
+            <div class="seeMoreButtonWrap">
+              <button type="button" class="seeMoreButton">
+                <svg viewBox="0 0 16 17" xmlns="http://www.w3.org/2000/svg" class="seeMoreSVG">
+                  <mask id="RefreshLine_svg__a" maskUnits="userSpaceOnUse" x="0" y="0" style="mask-type: alpha;">
+                    <path d="M0 .4h16v16H0z"></path>
+                  </mask>
+                  <g mask="url(#RefreshLine_svg__a)">
+                    <path fill-rule="evenodd" clip-rule="evenodd" d="M13.38 8.776a.8.8 0 0 0-.327.517 5.132 5.132 0 0 1-5.067 4.252A5.15 5.15 0 0 1 2.842 8.4a5.15 5.15 0 0 1 5.144-5.144c1.289 0 2.502.476 3.45 1.336l-.662.662a.66.66 0 0 0 .366 1.12l2.808.433a.66.66 0 0 0 .753-.754l-.433-2.807a.661.661 0 0 0-1.12-.367l-.581.582a6.696 6.696 0 0 0-4.581-1.805 6.751 6.751 0 0 0-6.744 6.744 6.75 6.75 0 0 0 6.744 6.743 6.729 6.729 0 0 0 6.643-5.577.8.8 0 0 0-1.248-.791Z"></path>
+                  </g>
+                </svg>
+                <!-- 숫자는 현재페이지로 표시 -->
+                <span class="currentPage">더보기 1</span>
+                <!-- 숫자는 전체페이지수 표시 -->
+                <span class="endPage">/5</span>
+              </button>
+            </div>
+            <div style="height: 48px;"></div>
             <div class="gapLine"></div>
             <div style="height: 28px;"></div>
-            <!-- 작성자의 다른글 목록 -->
-            <section>
-              <h4 class="bottomListHeaderWrap">
-                <div class="bottomListHeader">
-                  <!-- 작성자의 닉네임 가져와서 입력 -->
-                  <span class="writerName">이공계연구원 코냉</span>님의 최신 포스트
-                </div>
-              </h4>
-              <ul class="bottomListWrap">
-                <li class="bottomList">
-                  <div>
-                    <button type="button" class="bottomPost">
-                      <div class="postThumbnail">
-                        <!-- 게시글 정보 가져와서 h2와 p태그 value 채우기 -->
-                        <div class="contentThumbnail">
-                          <h2 class="contentHeader">[포스트판매] 2023년 전기 고려대학교 의과학과/의공학과 실제 입학시험문제 </h2>
-                          <p class="content">안녕하세요. 2023년 전기 고려대학교 대학원 의과학과/의공학과의 실제 입학시험 문제입니다. 해당 포스트 구매시 확인해볼 수 있습니다. PDF 1부로 구성되어 있습니다. 감사합니다.</p>
-                        </div>
-                        <!-- 게시글에 이미지 있을 경우 imageThumbnailWrap클래스 display: block설정 필요 -->
-                        <div class="imageThumbnailWrap" style="display: none;">
-                          <span class="imageThumbnail">
-                            <img alt src="" decoding="async" data-nimg="fill" class="image">
-                          </span>
-                        </div>
-                      </div>
-                      <div class="postThumbnailFooter">
-                        <!-- css속성 background: url() 괄호안에 프로필의 이미지 입력 -->
-                        <div class="postThumbnailwriterImage" style="background: url(/image/postReadImage/writerImage1.png) center center / cover no-repeat, rgb(255, 255, 255);"></div>
-                        <div class="nameTimeHits">
-                          <!-- 닉네임 -->
-                          <span class="nickname">이공계연구원 코냉</span>
-                          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" class="listCircle">
-                            <circle cx="12" cy="12" r="4"></circle>
-                          </svg>
-                          <!-- 등록시간 기준 0시간, 0일, 0달, 0년 전으로 입력 -->
-                          <span class="time">3일 전</span>
-                          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" class="listCircle">
-                            <circle cx="12" cy="12" r="4"></circle>
-                          </svg>
-                          <!-- 뒤의 숫자는 받아서 출력 -->
-                          <span class="hits">조회수 7</span>
-                        </div>
-                      </div>
-                    </button>
-                  </div>
-                </li>
-                <li class="bottomList">
-                  <div>
-                    <button type="button" class="bottomPost">
-                      <div class="postThumbnail">
-                        <!-- 게시글 정보 가져와서 h2와 p태그 value 채우기 -->
-                        <div class="contentThumbnail">
-                          <h2 class="contentHeader">[포스트판매] 2022년 후기 고려대학교 의과학과/의공학과 실제 입학시험문제</h2>
-                          <p class="content">안녕하세요. 2022년도 후기 고려대학교 대학원 의과학과 및 의공학과의 실제 입학시험문제를 올려드립니다. 해당 포스트 구매시 확인해볼 수 있으며 PDF 파일 1부로 구성되어 있습니다. 감사합니다.</p>
-                        </div>
-                        <!-- 게시글에 이미지 있을 경우 imageThumbnailWrap클래스 display: block설정 필요 -->
-                        <div class="imageThumbnailWrap" style="display: none;">
-                          <span class="imageThumbnail">
-                            <img alt src="" decoding="async" data-nimg="fill" class="image">
-                          </span>
-                        </div>
-                      </div>
-                      <div class="postThumbnailFooter">
-                        <!-- css속성 background: url() 괄호안에 프로필의 이미지 입력 -->
-                        <div class="postThumbnailwriterImage" style="background: url(/image/postReadImage/writerImage1.png) center center / cover no-repeat, rgb(255, 255, 255);"></div>
-                        <div class="nameTimeHits">
-                          <!-- 작성자 닉네임 -->
-                          <span class="nickname">이공계연구원 코냉</span>
-                          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" class="listCircle">
-                            <circle cx="12" cy="12" r="4"></circle>
-                          </svg>
-                          <!-- 등록시간 기준 0시간, 0일, 0달, 0년 전으로 입력 -->
-                          <span class="time">3일 전</span>
-                          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" class="listCircle">
-                            <circle cx="12" cy="12" r="4"></circle>
-                          </svg>
-                          <!-- 뒤의 숫자는 받아서 출력 -->
-                          <span class="hits">조회수 4</span>
-                        </div>
-                      </div>
-                    </button>
-                  </div>
-                </li>
-                <li class="bottomList">
-                  <div>
-                    <button type="button" class="bottomPost">
-                      <div class="postThumbnail">
-                        <!-- 게시글 정보 가져와서 h2와 p태그 value 채우기 -->
-                        <div class="contentThumbnail">
-                          <h2 class="contentHeader"> [베이직] 대학원 컨설팅의 모든 것 PDF</h2>
-                          <p class="content">안녕하세요. 해당 포스트는 49,800원 멤버십 가입시 제공되는 포스트입니다. 책 1부 및 CV 등 해당되는 부록이 포함되어있으며 각각의 한글/개별 PDF 파일은 포스트 목록에서도 만나보실 수 있습니다. 감사합니다 :)</p>
-                        </div>
-                        <!-- 게시글에 이미지 있을 경우 imageThumbnailWrap클래스 display: block설정 필요 -->
-                        <div class="imageThumbnailWrap" style="display: none;">
-                          <span class="imageThumbnail">
-                            <img alt src="" decoding="async" data-nimg="fill" class="image">
-                          </span>
-                        </div>
-                      </div>
-                      <div class="postThumbnailFooter">
-                        <!-- css속성 background: url() 괄호안에 프로필의 이미지 입력 -->
-                        <div class="postThumbnailwriterImage" style="background: url(/image/postReadImage/writerImage1.png) center center / cover no-repeat, rgb(255, 255, 255);"></div>
-                        <div class="nameTimeHits">
-                          <!-- 작성자 닉네임 -->
-                          <span class="nickname">이공계연구원 코냉</span>
-                          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" class="listCircle">
-                            <circle cx="12" cy="12" r="4"></circle>
-                          </svg>
-                          <!-- 등록시간 기준 0시간, 0일, 0달, 0년 전으로 입력 -->
-                          <span class="time">5일 전</span>
-                          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" class="listCircle">
-                            <circle cx="12" cy="12" r="4"></circle>
-                          </svg>
-                          <!-- 뒤의 숫자는 받아서 출력 -->
-                          <span class="hits">조회수 2</span>
-                        </div>
-                      </div>
-                    </button>
-                  </div>
-                </li>
-                <li class="bottomList">
-                  <div>
-                    <button type="button" class="bottomPost">
-                      <div class="postThumbnail">
-                        <!-- 게시글 정보 가져와서 h2와 p태그 value 채우기 -->
-                        <div class="contentThumbnail">
-                          <h2 class="contentHeader"> [자료없는 버전] 대학원 컨설팅의 모든 것 PDF 전자책 1부</h2>
-                          <p class="content">안녕하세요 :) 해당 포스트는 <대학원 컨설팅의 모든 것> PDF 전자책 1부 파일이 포함된 포스트로 29,800원 멤버십에 가입해주시는 분들께 제공되는 포스트입니다 :) 책 1부만 포함되어있으며, 부록에 딸린 여러 자료들은 제외되었다는 점 참고바랍니다. 감사합니다 :)</p>
-                        </div>
-                        <!-- 게시글에 이미지 있을 경우 imageThumbnailWrap클래스 display: block설정 필요 -->
-                        <div class="imageThumbnailWrap" style="display: none;">
-                          <span class="imageThumbnail">
-                            <img alt src="" decoding="async" data-nimg="fill" class="image">
-                          </span>
-                        </div>
-                      </div>
-                      <div class="postThumbnailFooter">
-                        <!-- css속성 background: url() 괄호안에 프로필의 이미지 입력 -->
-                        <div class="postThumbnailwriterImage" style="background: url(/image/postReadImage/writerImage1.png) center center / cover no-repeat, rgb(255, 255, 255);"></div>
-                        <div class="nameTimeHits">
-                          <!-- 작성자 닉네임 -->
-                          <span class="nickname">이공계연구원 코냉</span>
-                          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" class="listCircle">
-                            <circle cx="12" cy="12" r="4"></circle>
-                          </svg>
-                          <!-- 등록시간 기준 0시간, 0일, 0달, 0년 전으로 입력 -->
-                          <span class="time">5일 전</span>
-                          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" class="listCircle">
-                            <circle cx="12" cy="12" r="4"></circle>
-                          </svg>
-                          <!-- 뒤의 숫자는 받아서 출력 -->
-                          <span class="hits">조회수 1</span>
-                        </div>
-                      </div>
-                    </button>
-                  </div>
-                </li>
-                <li class="bottomList">
-                  <div>
-                    <button type="button" class="bottomPost">
-                      <div class="postThumbnail">
-                        <!-- 게시글 정보 가져와서 h2와 p태그 value 채우기 -->
-                        <div class="contentThumbnail">
-                          <h2 class="contentHeader">[족보/포스트 판매] 고려대학교 대학원 의과학과 입학시험 기출문제 족보</h2>
-                          <p class="content">안녕하세요. 해당 포스트는 멤버십 가입과는 별로도 제공되는 자료로 고려대학교 대학원 의과학과 입학시험 기출문제 족보입니다. 포스트 개별 구매권을 구매하시면 열람이 가능합니다. 한글 파일 4개로 구성되어있으며, 아래에 보이는 이미지와 같이 고려대학교 대학원 의과학과 입시시험에서 나왔던 기출문제들을 정리해둔 족보를 다운로드 받으실 수 있습니다. (이미지는 실제 기출문제 족보집에서 예시로 캡쳐된 사진입니다.) 감사합니다 :)</p>
-                        </div>
-                        <!-- 게시글에 이미지 있을 경우 imageThumbnailWrap클래스 display: block설정 필요 -->
-                        <div class="imageThumbnailWrap" style="display: block;">
-                          <span class="imageThumbnail">
-                            <img alt src="/image/postReadImage/imageThumbnail.png" decoding="async" data-nimg="fill" class="image">
-                          </span>
-                        </div>
-                      </div>
-                      <div class="postThumbnailFooter">
-                        <!-- css속성 background: url() 괄호안에 프로필의 이미지 입력 -->
-                        <div class="postThumbnailwriterImage" style="background: url(/image/postReadImage/writerImage1.png) center center / cover no-repeat, rgb(255, 255, 255);"></div>
-                        <div class="nameTimeHits">
-                          <!-- 작성자 닉네임 -->
-                          <span class="nickname">이공계연구원 코냉</span>
-                          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" class="listCircle">
-                            <circle cx="12" cy="12" r="4"></circle>
-                          </svg>
-                          <!-- 등록시간 기준 0시간, 0일, 0달, 0년 전으로 입력 -->
-                          <span class="time">5일 전</span>
-                          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" class="listCircle">
-                            <circle cx="12" cy="12" r="4"></circle>
-                          </svg>
-                          <!-- 뒤의 숫자는 받아서 출력 -->
-                          <span class="hits">조회수 10</span>
-                        </div>
-                      </div>
-                    </button>
-                  </div>
-                </li>
-              </ul>
-              <!-- 목록이 6개 이상일때 block -->
-              <div class="seeMoreButtonWrap">
-                <button type="button" class="seeMoreButton">
-                  <svg viewBox="0 0 16 17" xmlns="http://www.w3.org/2000/svg" class="seeMoreSVG">
-                    <mask id="RefreshLine_svg__a" maskUnits="userSpaceOnUse" x="0" y="0" style="mask-type: alpha;">
-                      <path d="M0 .4h16v16H0z"></path>
-                    </mask>
-                    <g mask="url(#RefreshLine_svg__a)">
-                      <path fill-rule="evenodd" clip-rule="evenodd" d="M13.38 8.776a.8.8 0 0 0-.327.517 5.132 5.132 0 0 1-5.067 4.252A5.15 5.15 0 0 1 2.842 8.4a5.15 5.15 0 0 1 5.144-5.144c1.289 0 2.502.476 3.45 1.336l-.662.662a.66.66 0 0 0 .366 1.12l2.808.433a.66.66 0 0 0 .753-.754l-.433-2.807a.661.661 0 0 0-1.12-.367l-.581.582a6.696 6.696 0 0 0-4.581-1.805 6.751 6.751 0 0 0-6.744 6.744 6.75 6.75 0 0 0 6.744 6.743 6.729 6.729 0 0 0 6.643-5.577.8.8 0 0 0-1.248-.791Z"></path>
-                    </g>
-                  </svg>
-                  <!-- 숫자는 현재페이지로 표시 -->
-                  <span class="currentPage">더보기 1</span>
-                  <!-- 숫자는 전체페이지수 표시 -->
-                  <span class="endPage">/5</span>
-                </button>
+          </section>
+          <!-- 동일한 카테고리의 다른글 목록 -->
+          <section>
+            <h4 class="bottomListHeaderWrap">
+              <div class="bottomListHeader">
+                <!-- 해당 글의 카테고리의 내용 입력-->
+                <span class="categoryName">교육 · 워크숍</span>&nbsp;크리에이터 최신 포스트
               </div>
-              <div style="height: 48px;"></div>
-              <div class="gapLine"></div>
-              <div style="height: 28px;"></div>
-            </section>
-            <!-- 동일한 카테고리의 다른글 목록 -->
-            <section>
-              <h4 class="bottomListHeaderWrap">
-                <div class="bottomListHeader">
-                  <!-- 해당 글의 카테고리의 내용 입력-->
-                  <span class="categoryName">교육 · 워크숍</span>&nbsp;크리에이터 최신 포스트
+            </h4>
+            <ul class="bottomListWrap">
+              <li class="bottomList">
+                <div>
+                  <button type="button" class="bottomPost">
+                    <div class="postThumbnail">
+                      <!-- 게시글 정보 가져와서 h2와 p태그 value 채우기 -->
+                      <div class="contentThumbnail">
+                        <h2 class="contentHeader">[포스트판매] 2023년 전기 고려대학교 의과학과/의공학과 실제 입학시험문제 </h2>
+                        <p class="content">안녕하세요. 2023년 전기 고려대학교 대학원 의과학과/의공학과의 실제 입학시험 문제입니다. 해당 포스트 구매시 확인해볼 수 있습니다. PDF 1부로 구성되어 있습니다. 감사합니다.</p>
+                      </div>
+                      <!-- 게시글에 이미지 있을 경우 imageThumbnailWrap클래스 display: block설정 필요 -->
+                      <div class="imageThumbnailWrap" style="display: none;">
+                        <span class="imageThumbnail">
+                          <img alt src="" decoding="async" data-nimg="fill" class="image">
+                        </span>
+                      </div>
+                    </div>
+                    <div class="postThumbnailFooter">
+                      <!-- css속성 background: url() 괄호안에 프로필의 이미지 입력 -->
+                      <div class="postThumbnailwriterImage" style="background: url(/image/postReadImage/writerImage1.png) center center / cover no-repeat, rgb(255, 255, 255);"></div>
+                      <div class="nameTimeHits">
+                        <!-- 닉네임 -->
+                        <span class="nickname">이공계연구원 코냉</span>
+                        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" class="listCircle">
+                          <circle cx="12" cy="12" r="4"></circle>
+                        </svg>
+                        <!-- 등록시간 기준 0시간, 0일, 0달, 0년 전으로 입력 -->
+                        <span class="time">3일 전</span>
+                        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" class="listCircle">
+                          <circle cx="12" cy="12" r="4"></circle>
+                        </svg>
+                        <!-- 뒤의 숫자는 받아서 출력 -->
+                        <span class="hits">조회수 7</span>
+                      </div>
+                    </div>
+                  </button>
                 </div>
-              </h4>
-              <ul class="bottomListWrap">
-                <li class="bottomList">
-                  <div>
-                    <button type="button" class="bottomPost">
-                      <div class="postThumbnail">
-                        <!-- 게시글 정보 가져와서 h2와 p태그 value 채우기 -->
-                        <div class="contentThumbnail">
-                          <h2 class="contentHeader">[포스트판매] 2023년 전기 고려대학교 의과학과/의공학과 실제 입학시험문제 </h2>
-                          <p class="content">안녕하세요. 2023년 전기 고려대학교 대학원 의과학과/의공학과의 실제 입학시험 문제입니다. 해당 포스트 구매시 확인해볼 수 있습니다. PDF 1부로 구성되어 있습니다. 감사합니다.</p>
-                        </div>
-                        <!-- 게시글에 이미지 있을 경우 imageThumbnailWrap클래스 display: block설정 필요 -->
-                        <div class="imageThumbnailWrap" style="display: none;">
-                          <span class="imageThumbnail">
-                            <img alt src="" decoding="async" data-nimg="fill" class="image">
-                          </span>
-                        </div>
+              </li>
+              <li class="bottomList">
+                <div>
+                  <button type="button" class="bottomPost">
+                    <div class="postThumbnail">
+                      <!-- 게시글 정보 가져와서 h2와 p태그 value 채우기 -->
+                      <div class="contentThumbnail">
+                        <h2 class="contentHeader">[포스트판매] 2023년 전기 고려대학교 의과학과/의공학과 실제 입학시험문제 </h2>
+                        <p class="content">안녕하세요. 2023년 전기 고려대학교 대학원 의과학과/의공학과의 실제 입학시험 문제입니다. 해당 포스트 구매시 확인해볼 수 있습니다. PDF 1부로 구성되어 있습니다. 감사합니다.</p>
                       </div>
-                      <div class="postThumbnailFooter">
-                        <!-- css속성 background: url() 괄호안에 프로필의 이미지 입력 -->
-                        <div class="postThumbnailwriterImage" style="background: url(/image/postReadImage/writerImage1.png) center center / cover no-repeat, rgb(255, 255, 255);"></div>
-                        <div class="nameTimeHits">
-                          <!-- 닉네임 -->
-                          <span class="nickname">이공계연구원 코냉</span>
-                          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" class="listCircle">
-                            <circle cx="12" cy="12" r="4"></circle>
-                          </svg>
-                          <!-- 등록시간 기준 0시간, 0일, 0달, 0년 전으로 입력 -->
-                          <span class="time">3일 전</span>
-                          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" class="listCircle">
-                            <circle cx="12" cy="12" r="4"></circle>
-                          </svg>
-                          <!-- 뒤의 숫자는 받아서 출력 -->
-                          <span class="hits">조회수 7</span>
-                        </div>
+                      <!-- 게시글에 이미지 있을 경우 imageThumbnailWrap클래스 display: block설정 필요 -->
+                      <div class="imageThumbnailWrap" style="display: none;">
+                        <span class="imageThumbnail">
+                          <img alt src="" decoding="async" data-nimg="fill" class="image">
+                        </span>
                       </div>
-                    </button>
-                  </div>
-                </li>
-                <li class="bottomList">
-                  <div>
-                    <button type="button" class="bottomPost">
-                      <div class="postThumbnail">
-                        <!-- 게시글 정보 가져와서 h2와 p태그 value 채우기 -->
-                        <div class="contentThumbnail">
-                          <h2 class="contentHeader">[포스트판매] 2023년 전기 고려대학교 의과학과/의공학과 실제 입학시험문제 </h2>
-                          <p class="content">안녕하세요. 2023년 전기 고려대학교 대학원 의과학과/의공학과의 실제 입학시험 문제입니다. 해당 포스트 구매시 확인해볼 수 있습니다. PDF 1부로 구성되어 있습니다. 감사합니다.</p>
-                        </div>
-                        <!-- 게시글에 이미지 있을 경우 imageThumbnailWrap클래스 display: block설정 필요 -->
-                        <div class="imageThumbnailWrap" style="display: none;">
-                          <span class="imageThumbnail">
-                            <img alt src="" decoding="async" data-nimg="fill" class="image">
-                          </span>
-                        </div>
+                    </div>
+                    <div class="postThumbnailFooter">
+                      <!-- css속성 background: url() 괄호안에 프로필의 이미지 입력 -->
+                      <div class="postThumbnailwriterImage" style="background: url(/image/postReadImage/writerImage1.png) center center / cover no-repeat, rgb(255, 255, 255);"></div>
+                      <div class="nameTimeHits">
+                        <!-- 닉네임 -->
+                        <span class="nickname">이공계연구원 코냉</span>
+                        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" class="listCircle">
+                          <circle cx="12" cy="12" r="4"></circle>
+                        </svg>
+                        <!-- 등록시간 기준 0시간, 0일, 0달, 0년 전으로 입력 -->
+                        <span class="time">3일 전</span>
+                        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" class="listCircle">
+                          <circle cx="12" cy="12" r="4"></circle>
+                        </svg>
+                        <!-- 뒤의 숫자는 받아서 출력 -->
+                        <span class="hits">조회수 7</span>
                       </div>
-                      <div class="postThumbnailFooter">
-                        <!-- css속성 background: url() 괄호안에 프로필의 이미지 입력 -->
-                        <div class="postThumbnailwriterImage" style="background: url(/image/postReadImage/writerImage1.png) center center / cover no-repeat, rgb(255, 255, 255);"></div>
-                        <div class="nameTimeHits">
-                          <!-- 닉네임 -->
-                          <span class="nickname">이공계연구원 코냉</span>
-                          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" class="listCircle">
-                            <circle cx="12" cy="12" r="4"></circle>
-                          </svg>
-                          <!-- 등록시간 기준 0시간, 0일, 0달, 0년 전으로 입력 -->
-                          <span class="time">3일 전</span>
-                          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" class="listCircle">
-                            <circle cx="12" cy="12" r="4"></circle>
-                          </svg>
-                          <!-- 뒤의 숫자는 받아서 출력 -->
-                          <span class="hits">조회수 7</span>
-                        </div>
+                    </div>
+                  </button>
+                </div>
+              </li>
+              <li class="bottomList">
+                <div>
+                  <button type="button" class="bottomPost">
+                    <div class="postThumbnail">
+                      <!-- 게시글 정보 가져와서 h2와 p태그 value 채우기 -->
+                      <div class="contentThumbnail">
+                        <h2 class="contentHeader">[포스트판매] 2023년 전기 고려대학교 의과학과/의공학과 실제 입학시험문제 </h2>
+                        <p class="content">안녕하세요. 2023년 전기 고려대학교 대학원 의과학과/의공학과의 실제 입학시험 문제입니다. 해당 포스트 구매시 확인해볼 수 있습니다. PDF 1부로 구성되어 있습니다. 감사합니다.</p>
                       </div>
-                    </button>
-                  </div>
-                </li>
-                <li class="bottomList">
-                  <div>
-                    <button type="button" class="bottomPost">
-                      <div class="postThumbnail">
-                        <!-- 게시글 정보 가져와서 h2와 p태그 value 채우기 -->
-                        <div class="contentThumbnail">
-                          <h2 class="contentHeader">[포스트판매] 2023년 전기 고려대학교 의과학과/의공학과 실제 입학시험문제 </h2>
-                          <p class="content">안녕하세요. 2023년 전기 고려대학교 대학원 의과학과/의공학과의 실제 입학시험 문제입니다. 해당 포스트 구매시 확인해볼 수 있습니다. PDF 1부로 구성되어 있습니다. 감사합니다.</p>
-                        </div>
-                        <!-- 게시글에 이미지 있을 경우 imageThumbnailWrap클래스 display: block설정 필요 -->
-                        <div class="imageThumbnailWrap" style="display: none;">
-                          <span class="imageThumbnail">
-                            <img alt src="" decoding="async" data-nimg="fill" class="image">
-                          </span>
-                        </div>
+                      <!-- 게시글에 이미지 있을 경우 imageThumbnailWrap클래스 display: block설정 필요 -->
+                      <div class="imageThumbnailWrap" style="display: none;">
+                        <span class="imageThumbnail">
+                          <img alt src="" decoding="async" data-nimg="fill" class="image">
+                        </span>
                       </div>
-                      <div class="postThumbnailFooter">
-                        <!-- css속성 background: url() 괄호안에 프로필의 이미지 입력 -->
-                        <div class="postThumbnailwriterImage" style="background: url(/image/postReadImage/writerImage1.png) center center / cover no-repeat, rgb(255, 255, 255);"></div>
-                        <div class="nameTimeHits">
-                          <!-- 닉네임 -->
-                          <span class="nickname">이공계연구원 코냉</span>
-                          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" class="listCircle">
-                            <circle cx="12" cy="12" r="4"></circle>
-                          </svg>
-                          <!-- 등록시간 기준 0시간, 0일, 0달, 0년 전으로 입력 -->
-                          <span class="time">3일 전</span>
-                          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" class="listCircle">
-                            <circle cx="12" cy="12" r="4"></circle>
-                          </svg>
-                          <!-- 뒤의 숫자는 받아서 출력 -->
-                          <span class="hits">조회수 7</span>
-                        </div>
+                    </div>
+                    <div class="postThumbnailFooter">
+                      <!-- css속성 background: url() 괄호안에 프로필의 이미지 입력 -->
+                      <div class="postThumbnailwriterImage" style="background: url(/image/postReadImage/writerImage1.png) center center / cover no-repeat, rgb(255, 255, 255);"></div>
+                      <div class="nameTimeHits">
+                        <!-- 닉네임 -->
+                        <span class="nickname">이공계연구원 코냉</span>
+                        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" class="listCircle">
+                          <circle cx="12" cy="12" r="4"></circle>
+                        </svg>
+                        <!-- 등록시간 기준 0시간, 0일, 0달, 0년 전으로 입력 -->
+                        <span class="time">3일 전</span>
+                        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" class="listCircle">
+                          <circle cx="12" cy="12" r="4"></circle>
+                        </svg>
+                        <!-- 뒤의 숫자는 받아서 출력 -->
+                        <span class="hits">조회수 7</span>
                       </div>
-                    </button>
-                  </div>
-                </li>
-                <li class="bottomList">
-                  <div>
-                    <button type="button" class="bottomPost">
-                      <div class="postThumbnail">
-                        <!-- 게시글 정보 가져와서 h2와 p태그 value 채우기 -->
-                        <div class="contentThumbnail">
-                          <h2 class="contentHeader">[포스트판매] 2023년 전기 고려대학교 의과학과/의공학과 실제 입학시험문제 </h2>
-                          <p class="content">안녕하세요. 2023년 전기 고려대학교 대학원 의과학과/의공학과의 실제 입학시험 문제입니다. 해당 포스트 구매시 확인해볼 수 있습니다. PDF 1부로 구성되어 있습니다. 감사합니다.</p>
-                        </div>
-                        <!-- 게시글에 이미지 있을 경우 imageThumbnailWrap클래스 display: block설정 필요 -->
-                        <div class="imageThumbnailWrap" style="display: none;">
-                          <span class="imageThumbnail">
-                            <img alt src="" decoding="async" data-nimg="fill" class="image">
-                          </span>
-                        </div>
+                    </div>
+                  </button>
+                </div>
+              </li>
+              <li class="bottomList">
+                <div>
+                  <button type="button" class="bottomPost">
+                    <div class="postThumbnail">
+                      <!-- 게시글 정보 가져와서 h2와 p태그 value 채우기 -->
+                      <div class="contentThumbnail">
+                        <h2 class="contentHeader">[포스트판매] 2023년 전기 고려대학교 의과학과/의공학과 실제 입학시험문제 </h2>
+                        <p class="content">안녕하세요. 2023년 전기 고려대학교 대학원 의과학과/의공학과의 실제 입학시험 문제입니다. 해당 포스트 구매시 확인해볼 수 있습니다. PDF 1부로 구성되어 있습니다. 감사합니다.</p>
                       </div>
-                      <div class="postThumbnailFooter">
-                        <!-- css속성 background: url() 괄호안에 프로필의 이미지 입력 -->
-                        <div class="postThumbnailwriterImage" style="background: url(/image/postReadImage/writerImage1.png) center center / cover no-repeat, rgb(255, 255, 255);"></div>
-                        <div class="nameTimeHits">
-                          <!-- 닉네임 -->
-                          <span class="nickname">이공계연구원 코냉</span>
-                          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" class="listCircle">
-                            <circle cx="12" cy="12" r="4"></circle>
-                          </svg>
-                          <!-- 등록시간 기준 0시간, 0일, 0달, 0년 전으로 입력 -->
-                          <span class="time">3일 전</span>
-                          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" class="listCircle">
-                            <circle cx="12" cy="12" r="4"></circle>
-                          </svg>
-                          <!-- 뒤의 숫자는 받아서 출력 -->
-                          <span class="hits">조회수 7</span>
-                        </div>
+                      <!-- 게시글에 이미지 있을 경우 imageThumbnailWrap클래스 display: block설정 필요 -->
+                      <div class="imageThumbnailWrap" style="display: none;">
+                        <span class="imageThumbnail">
+                          <img alt src="" decoding="async" data-nimg="fill" class="image">
+                        </span>
                       </div>
-                    </button>
-                  </div>
-                </li>
-                <li class="bottomList">
-                  <div>
-                    <button type="button" class="bottomPost">
-                      <div class="postThumbnail">
-                        <!-- 게시글 정보 가져와서 h2와 p태그 value 채우기 -->
-                        <div class="contentThumbnail">
-                          <h2 class="contentHeader">[포스트판매] 2023년 전기 고려대학교 의과학과/의공학과 실제 입학시험문제 </h2>
-                          <p class="content">안녕하세요. 2023년 전기 고려대학교 대학원 의과학과/의공학과의 실제 입학시험 문제입니다. 해당 포스트 구매시 확인해볼 수 있습니다. PDF 1부로 구성되어 있습니다. 감사합니다.</p>
-                        </div>
-                        <!-- 게시글에 이미지 있을 경우 imageThumbnailWrap클래스 display: block설정 필요 -->
-                        <div class="imageThumbnailWrap" style="display: none;">
-                          <span class="imageThumbnail">
-                            <img alt src="" decoding="async" data-nimg="fill" class="image">
-                          </span>
-                        </div>
+                    </div>
+                    <div class="postThumbnailFooter">
+                      <!-- css속성 background: url() 괄호안에 프로필의 이미지 입력 -->
+                      <div class="postThumbnailwriterImage" style="background: url(/image/postReadImage/writerImage1.png) center center / cover no-repeat, rgb(255, 255, 255);"></div>
+                      <div class="nameTimeHits">
+                        <!-- 닉네임 -->
+                        <span class="nickname">이공계연구원 코냉</span>
+                        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" class="listCircle">
+                          <circle cx="12" cy="12" r="4"></circle>
+                        </svg>
+                        <!-- 등록시간 기준 0시간, 0일, 0달, 0년 전으로 입력 -->
+                        <span class="time">3일 전</span>
+                        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" class="listCircle">
+                          <circle cx="12" cy="12" r="4"></circle>
+                        </svg>
+                        <!-- 뒤의 숫자는 받아서 출력 -->
+                        <span class="hits">조회수 7</span>
                       </div>
-                      <div class="postThumbnailFooter">
-                        <!-- css속성 background: url() 괄호안에 프로필의 이미지 입력 -->
-                        <div class="postThumbnailwriterImage" style="background: url(/image/postReadImage/writerImage1.png) center center / cover no-repeat, rgb(255, 255, 255);"></div>
-                        <div class="nameTimeHits">
-                          <!-- 닉네임 -->
-                          <span class="nickname">이공계연구원 코냉</span>
-                          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" class="listCircle">
-                            <circle cx="12" cy="12" r="4"></circle>
-                          </svg>
-                          <!-- 등록시간 기준 0시간, 0일, 0달, 0년 전으로 입력 -->
-                          <span class="time">3일 전</span>
-                          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" class="listCircle">
-                            <circle cx="12" cy="12" r="4"></circle>
-                          </svg>
-                          <!-- 뒤의 숫자는 받아서 출력 -->
-                          <span class="hits">조회수 7</span>
-                        </div>
+                    </div>
+                  </button>
+                </div>
+              </li>
+              <li class="bottomList">
+                <div>
+                  <button type="button" class="bottomPost">
+                    <div class="postThumbnail">
+                      <!-- 게시글 정보 가져와서 h2와 p태그 value 채우기 -->
+                      <div class="contentThumbnail">
+                        <h2 class="contentHeader">[포스트판매] 2023년 전기 고려대학교 의과학과/의공학과 실제 입학시험문제 </h2>
+                        <p class="content">안녕하세요. 2023년 전기 고려대학교 대학원 의과학과/의공학과의 실제 입학시험 문제입니다. 해당 포스트 구매시 확인해볼 수 있습니다. PDF 1부로 구성되어 있습니다. 감사합니다.</p>
                       </div>
-                    </button>
-                  </div>
-                </li>
-              </ul>
-            </section>
-          </div>
-        </div>
+                      <!-- 게시글에 이미지 있을 경우 imageThumbnailWrap클래스 display: block설정 필요 -->
+                      <div class="imageThumbnailWrap" style="display: none;">
+                        <span class="imageThumbnail">
+                          <img alt src="" decoding="async" data-nimg="fill" class="image">
+                        </span>
+                      </div>
+                    </div>
+                    <div class="postThumbnailFooter">
+                      <!-- css속성 background: url() 괄호안에 프로필의 이미지 입력 -->
+                      <div class="postThumbnailwriterImage" style="background: url(/image/postReadImage/writerImage1.png) center center / cover no-repeat, rgb(255, 255, 255);"></div>
+                      <div class="nameTimeHits">
+                        <!-- 닉네임 -->
+                        <span class="nickname">이공계연구원 코냉</span>
+                        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" class="listCircle">
+                          <circle cx="12" cy="12" r="4"></circle>
+                        </svg>
+                        <!-- 등록시간 기준 0시간, 0일, 0달, 0년 전으로 입력 -->
+                        <span class="time">3일 전</span>
+                        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" class="listCircle">
+                          <circle cx="12" cy="12" r="4"></circle>
+                        </svg>
+                        <!-- 뒤의 숫자는 받아서 출력 -->
+                        <span class="hits">조회수 7</span>
+                      </div>
+                    </div>
+                  </button>
+                </div>
+              </li>
+            </ul>
+          </section>
         </main>
       </div>
+    
       <!-- 밑에 쪽 var-->
       <footer class="footervarWrap">
         <div class="footervarContainer">
           <div class="footervarContent">
             <div class="likeAndReplyWrap">
-              <div class="likeAndReplyContainer">
+              <div class="likeAndReplyCountWrap">
                 <!-- value안에 해당계시글 고유아이디? 넣기 -->
-                <button type="button" class="like" value="">
-                  <svg viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg" class="likeImage">
+                <button type="button" class="likeBTN" value="">
+                  <svg viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg" class="likeImageNone" style="display: block; color: #b9b9bb; fill: #b9b9bb;">
                     <path fill-rule="evenodd" clip-rule="evenodd" d="M10 5.406 8.616 4.141c-1.383-1.266-3.682-.982-4.941.422-1.581 1.687-1.582 4.543.092 6.328l5.535 5.487a.988.988 0 0 0 1.396 0l5.535-5.487c1.674-1.785 1.674-4.64.092-6.328-1.259-1.404-3.558-1.688-4.941-.422L10 5.406Zm2.284-.281L10 7.214l-2.284-2.09c-.75-.685-2.203-.615-3.049.329l-.01.01-.01.011c-1.079 1.152-1.117 3.198.077 4.49L10 15.191l5.276-5.229c1.194-1.291 1.156-3.336.076-4.489l-.01-.01-.01-.011c-.846-.944-2.299-1.014-3.048-.328Z"></path>
                   </svg>
+                  <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" class="likeImageYes" style="display: none; color: #5b44ea; fill: #5b44ea;">
+                    <path d="M11.163 19.654a1.185 1.185 0 0 0 1.675 0l6.642-6.584c2.008-2.143 2.008-5.57.11-7.595-1.51-1.684-4.27-2.025-5.93-.506L12 6.488l-1.66-1.52c-1.66-1.518-4.42-1.177-5.93.507-1.898 2.025-1.898 5.452.11 7.595l6.643 6.584Z"></path>
+                  </svg>
                   <!-- 이 글의 좋아요 받은 갯수 표시 -->
-                  <span class="likeCount">2</span>
+                  <span class="likeCount">0</span>
                 </button>
-                <button type="button" class="reply" value="">
+                <button type="button" class="replyBTN" value="">
                   <svg viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" class="replyImege">
                     <path clip-rule="evenodd" d="M8.144 13.563v2l2.543-2h2.396a2.74 2.74 0 0 0 2.741-2.74V7.073a2.74 2.74 0 0 0-2.74-2.74h-6.01a2.74 2.74 0 0 0-2.74 2.74v4.012a2.477 2.477 0 0 0 2.477 2.477h1.333Zm-.104 3.778a.815.815 0 0 1-1.23-.702v-1.743A3.81 3.81 0 0 1 3 11.086V7.074A4.074 4.074 0 0 1 7.074 3h6.01a4.074 4.074 0 0 1 4.073 4.074v3.748a4.074 4.074 0 0 1-4.074 4.074h-1.935L8.04 17.341Z"></path>
                     <path d="M8.167 9a.667.667 0 1 1-1.334 0 .667.667 0 0 1 1.334 0ZM10.667 9a.667.667 0 1 1-1.334 0 .667.667 0 0 1 1.334 0ZM13.167 9a.667.667 0 1 1-1.334 0 .667.667 0 0 1 1.334 0Z"></path>
@@ -686,6 +825,61 @@
           </div>
         </div>
       </footer>
+    </div>
+    <!-- 공유 모달창 -->
+    <div class="sharingDIV">
+      <div class="sharingModalWrap">
+        <div class="sharingModalContainer">
+          <div class="headerAndClose">
+            <h4 class="modalHeader">공유하기</h4>
+            <div class="close">
+              <button type="button" class="closeButton">
+                <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" class="closeSVG">
+                  <path d="M5.707 5.707a1 1 0 0 0 0 1.414l4.95 4.95-4.95 4.95a1 1 0 1 0 1.414 1.414l4.95-4.95 4.95 4.95a1 1 0 0 0 1.414-1.414l-4.95-4.95 4.95-4.95a1 1 0 1 0-1.414-1.414l-4.95 4.95-4.95-4.95a1 1 0 0 0-1.414 0Z"></path>
+                </svg>
+              </button>
+            </div>
+          </div>
+          <div style="height: 4px;"></div>
+          <div class="sharingKindWrap">
+            <div class="sharingKindcontainer">
+              <div class="sharingKind">
+                <button class="sharingIcon">
+                  <svg width="64" height="64" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <circle cx="32" cy="32" r="31.5" stroke="#E6E6E7"></circle>
+                    <g clip-path="url(#Twitter_svg__a)">
+                      <path d="M44.639 26.058c.019.28.019.562.019.846 0 8.647-6.555 18.62-18.54 18.62v-.006a18.39 18.39 0 0 1-9.99-2.933 13.05 13.05 0 0 0 9.644-2.712 6.528 6.528 0 0 1-6.087-4.545 6.47 6.47 0 0 0 2.942-.113 6.538 6.538 0 0 1-5.227-6.414v-.083c.906.507 1.92.788 2.957.819-2.863-1.922-3.745-5.747-2.017-8.738a18.468 18.468 0 0 0 13.43 6.837 6.566 6.566 0 0 1 1.885-6.252 6.504 6.504 0 0 1 9.22.284 13.044 13.044 0 0 0 4.138-1.59 6.564 6.564 0 0 1-2.865 3.62c1.292-.153 2.554-.5 3.742-1.03a13.269 13.269 0 0 1-3.251 3.39Z" fill="#1D9BF0"></path>
+                    </g>
+                    <defs>
+                      <clipPath id="Twitter_svg__a">
+                        <path fill="#fff" transform="translate(16 19.412)" d="M0 0h32v26.435H0z"></path>
+                      </clipPath>
+                    </defs>
+                  </svg>
+                  트위터
+                </button>
+                <button class="sharingIcon">
+                  <svg width="64" height="64" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <circle cx="32" cy="32" r="31.5" stroke="#E6E6E7"></circle>
+                    <path d="M31.762 16.762c-9.126 0-16.524 5.833-16.524 13.028 0 4.652 3.093 8.734 7.745 11.039-.253.873-1.626 5.615-1.68 5.988 0 0-.034.28.148.387.181.106.394.023.394.023.52-.072 6.029-3.941 6.982-4.613.953.134 1.933.205 2.935.205 9.126 0 16.524-5.833 16.524-13.029 0-7.195-7.398-13.028-16.524-13.028Z" fill="#3B1F1E"></path>
+                    <path d="M22.626 34.339c-.526 0-.953-.409-.953-.91v-5.664h-1.487a.936.936 0 0 1-.936-.934c0-.514.42-.933.936-.933h4.881c.516 0 .936.419.936.933 0 .515-.42.934-.936.934H23.58v5.663c0 .502-.428.91-.954.91Zm8.36-.013c-.398 0-.702-.161-.794-.42l-.472-1.237h-2.907l-.472 1.237c-.092.259-.396.42-.793.42-.21 0-.416-.044-.606-.131-.263-.122-.515-.455-.226-1.354l2.28-6.002c.161-.456.649-.927 1.27-.94.623.013 1.11.483 1.271.941l2.28 6c.29.9.037 1.234-.226 1.355-.19.087-.396.131-.606.131Zm-1.767-3.345-.952-2.705-.953 2.705h1.905ZM33.35 34.2c-.504 0-.914-.393-.914-.874V26.85c0-.525.437-.953.973-.953.537 0 .974.428.974.953v5.6h2.025c.504 0 .914.393.914.875 0 .481-.41.874-.914.874h-3.058Zm5.296.126a.954.954 0 0 1-.953-.953V26.85a.954.954 0 0 1 1.906 0v2.05l2.66-2.66a.74.74 0 0 1 .529-.213.94.94 0 0 1 .656.282.94.94 0 0 1 .28.604.743.743 0 0 1-.21.58l-2.173 2.173 2.347 3.108a.946.946 0 0 1 .183.707.947.947 0 0 1-.37.628.943.943 0 0 1-.573.193.945.945 0 0 1-.762-.38l-2.236-2.961-.33.33v2.08a.955.955 0 0 1-.954.954Z" fill="#FFE812"></path>
+                  </svg>
+                  카카오톡
+                </button>
+                <button class="sharingIcon">
+                  <svg width="64" height="64" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <circle cx="32" cy="32" r="31.5" stroke="#E6E6E7"></circle>
+                    <path d="M27.23 29.065a1.038 1.038 0 0 0-1.468 0l-2.935 2.936A6.486 6.486 0 1 0 32 41.174l2.936-2.935a1.038 1.038 0 1 0-1.468-1.468l-2.936 2.935a4.41 4.41 0 0 1-6.237-6.238l2.935-2.935a1.038 1.038 0 0 0 0-1.468ZM36.77 34.936a1.038 1.038 0 0 1 0-1.468l2.936-2.935a4.41 4.41 0 0 0-6.238-6.238l-2.936 2.936a1.038 1.038 0 1 1-1.467-1.468L32 22.827a6.487 6.487 0 0 1 9.173 9.174l-2.935 2.935a1.038 1.038 0 0 1-1.468 0Z" fill="#666667"></path>
+                    <path d="M28.293 35.892a1.038 1.038 0 0 1 0-1.468l6.626-6.626a1.038 1.038 0 1 1 1.468 1.467l-6.627 6.627a1.038 1.038 0 0 1-1.468 0Z" fill="#666667"></path>
+                  </svg>
+                  링크 복사
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="sharingModalshadow"></div>
     </div>
   </div>
 </body>
