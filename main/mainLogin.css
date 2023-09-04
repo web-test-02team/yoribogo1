@@ -107,10 +107,12 @@ a {
 
 .navLogo {
   display: block;
+  height: 30px;
   width: 150px;
   color: #1d1d1e;
   fill: #1d1d1e;
 }
+
 
 .memberServiceWrap {
   justify-content: flex-end;
@@ -237,6 +239,42 @@ a {
 .loginClickButtonHidden{
   display: none;
 }
+/* 카카오 로그인 연결 */
+.kakaoBtn{
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 16px;
+  padding-right: 16px;
+  --tw-bg-opacity: 1;
+  background-color: rgb(255 234 43/var(--tw-bg-opacity));
+  border-radius: 8px;
+  column-gap: 10px;
+  align-items: center;
+  width: 100%;
+  display: flex;
+  background-image: none;
+}
+.kakao1 {
+  width: 20px;
+  height: 20px;
+  color: #1d1d1e;
+  fill: #1d1d1e;
+}
+.svgKakao {
+  width: 12px;
+  height: 12px;
+  color: #333334;
+  fill: #333334;
+}
+.kakao2 {
+  text-align: left;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 16px;
+  color: #333334;
+  fill: #333334;
+}
+
 /*  */
 .postWriteWrap {
   display: block;
@@ -973,8 +1011,8 @@ ol {
   margin-top: 20px;
 }
 .footerLogo {
-  width: 219px;
-    height: 70px;
+  width: 200px;
+  height: 50px;
   color: #333334;
   fill: #333334;
 }
