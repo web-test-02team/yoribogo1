@@ -107,6 +107,7 @@ a {
 
 .navLogo {
   display: block;
+  height: 30px;
   width: 150px;
   color: #1d1d1e;
   fill: #1d1d1e;
@@ -899,8 +900,8 @@ ol {
   margin-top: 20px;
 }
 .footerLogo {
-  width: 219px;
-    height: 70px;
+  width: 200px;
+  height: 50px;
   color: #333334;
   fill: #333334;
 }

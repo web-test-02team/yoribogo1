@@ -1,18 +1,31 @@
 // const loginButton = document.querySelector(".loginButton");
 // const postWrite = document.querySelector(".postWrite");
 // const paymentSystem=document.querySelector(".paymentSystem")
-
+//로그인으로가기
 // loginButton.addEventListener("click", () => {
 //   window.location.href = "";
 // })
 
+//마이페이지로 가기
 // postWrite.addEventListener("click", () => {
 //   window.location.href = "";
 // })
+
+//헬프 센터 가기
 // paymentSystem.addEventListener("click",()=>{
 //   window.location.href = "";
 // });
 
+//레시피로 가기
+//const headlineOntent=document.querySelectorAll(".headlineOntent");
+//headlineOntent[0].addEventListener("click",()=>{
+//   window.location.href="";
+//})
+
+//후기로 가기
+//headlineOntent[1].addEventListener("click",()=>{
+//   window.location.href="";
+//})
 
 // 요리 분류 선택시 색..등등 변경
 const categoryButton = document.getElementsByClassName("categoryButton");
@@ -34,49 +47,57 @@ function init() {
 }
 init();
 
+// 슬라이드 배너 js
+const swiperWrap = document.querySelector(".swiperWrap");
+const numberLabelBold=document.querySelector(".numberLabelBold");
+const blocks=document.querySelectorAll(".block");
+//처음 번호 1로 선언 슬라이더배너  숫자 증가시키기 위해 선언
+let number=1;
+let count = 0
+// 슬라이드배너 색 선명도 변수선언 이렇게 하면 안될꺼 같은데..
+let currentSlide=0;
+swiperWrap.style.transform="translate(-1118.67px)"
+
+//초기화 함수
+function initialize() {
+  for (let i = 0; i < blocks.length; i++) {
+    if (i === currentSlide+3) {
+      blocks[i].style.opacity = 1; // 중앙 이미지 투명도 1
+    } 
+  else{
+      blocks[i].style.opacity = 0.3; // 양 옆 이미지 투명도 0.3   
+    }
+}
+}
+initialize();
 // 슬라이드 배너
 function autoSlide() {
   swiperWrap.style.transition = "transform 0.5s";
   count++;
   currentSlide++;
   if (count == 3) {
+     initialize();//이미지 전환 후 초기화
     number=1;
     numberLabelBold.innerText=`${number}`;
-    swiperWrap.style.transform = "translate(-" + 559.333 * (count + 2) + "px)";
+    swiperWrap.style.transform = "translate(-" + 559.333 * (count+2) + "px)";
+    count = 0;
+    currentSlide=0;
     setTimeout(function () {
       swiperWrap.style.transition = "transform 0s";
       swiperWrap.style.transform = "translate(-1118.67px)";
     }, 500);
-    count = 0;
-    currentSlide=0;
-    blocks[currentSlide+3].style.opacity= 1;
+    // 이걸하면 자연스럽게 opacity 가 잘 먹음 
+    blocks[currentSlide+3].style.opacity=1;
   } else {
     numberLabelBold.innerText=`${number+1}`
     number++;
     swiperWrap.style.transform = "translate(-" + 559.333 * (count + 2) + "px)";
-    blocks[currentSlide+3].style.opacity= 1;
-    blocks[currentSlide+4].style.opacity= 0.3;
-    blocks[currentSlide+2].style.opacity= 0.3;
+    initialize();// 이미지 전환 후 초기화
   }
 }
-
-// 무한 반복
-const swiperWrap = document.querySelector(".swiperWrap");
-const numberLabelBold=document.querySelector(".numberLabelBold");
-const blocks=document.querySelectorAll(".block");
-//처음 번호 1로 선언 슬라이더배너  숫자 증가시키기 위해 선언
-let number=1;
-numberLabelBold.innerText=`${number}`
-let count = 0
-// 슬라이드배너 색 선명도 변수선언 이렇게 하면 안될꺼 같은데..
-let currentSlide=0;
-blocks[currentSlide+3].style.opacity= 1;
-swiperWrap.style.transform="translate(-1118.67px)"
-
-
+  
 // 3초마다 슬라이드 이동
-let inter = setInterval(autoSlide, 3000);
-
+let inter = setInterval(autoSlide,3000);
 
 
 // 이전 버튼, 다음 버튼 구현
@@ -95,44 +116,42 @@ arrows.forEach((arrow) => {
         number--;
         currentSlide--;
         if (count == -1) {
+          initialize();
           swiperWrap.style.transform = "translate(-559.333px)";
+          count = 2;
+          currentSlide=2;
+          number=3;
           setTimeout(function () {
             swiperWrap.style.transition = "transform 0s";
             swiperWrap.style.transform = "translate(-2237.33px)";
           }, 500);
-          count = 2;
-          currentSlide=2;
-          number=3;
           blocks[currentSlide+3].style.opacity= 1;
           numberLabelBold.innerText=`${number}`
         } else {
           swiperWrap.style.transform = "translate(-" + 559.333 * (count + 2) + "px)";
           numberLabelBold.innerText=`${number}`
-          blocks[currentSlide+3].style.opacity= 1;
-          blocks[currentSlide+4].style.opacity= 0.3;
-          blocks[currentSlide+2].style.opacity= 0.3;
+          initialize();
         }
       } else {
         count++;
         number++;
         currentSlide++;
         if (count == 3) {
+          initialize();
           swiperWrap.style.transform = "translate(-" + 559.333 * (count + 2) + "px)";
+          count = 0;
+          number=1;
+          currentSlide=0;
           setTimeout(function () {
-            blocks[currentSlide+3].style.opacity= 1;
             swiperWrap.style.transition = "transform 0s";
             swiperWrap.style.transform = "translate(-1118.67px)";
           }, 500);
-          count = 0;
-          number=1;
-        currentSlide=0;
+          blocks[currentSlide+3].style.opacity= 1;
           numberLabelBold.innerText=`${number}`
         } else {
           swiperWrap.style.transform = "translate(-" + 559.333 * (count + 2) + "px)";
           numberLabelBold.innerText=`${number}`
-          blocks[currentSlide+3].style.opacity= 1;
-          blocks[currentSlide+4].style.opacity= 0.3;
-          blocks[currentSlide+2].style.opacity= 0.3;
+          initialize();
         }
       }
       inter = setInterval(autoSlide, 3000);
@@ -257,19 +276,18 @@ updateButtonStatesDiv();
 // const moreNumber=document.querySelector(".moreNumber");
 // let addNumber=1;
 // seeMore.addEventListener("click",()=>{
-//   moreNumber.innerText="더보기"+`${++addNumber}`
-//   if(addNumber==6){
-//     addNumber=0;
-//     moreNumber.innerText="더보기"+`${++addNumber}`
+//   ++addNumber;
+//   if(addNumber>5){
+//     addNumber=1;
 //   }
+//   moreNumber.innerText="더보기"+ addNumber
 // })
 
 // 검색창 시간
-const ingiTime=document.querySelector(".ingiTime");
-const currentTime = new Date();
-const hours = currentTime.getHours()
-console.log(hours)
-if (hours===0) {
-  hours === 24;
-}
-ingiTime.innerText=`${hours}:00 기준`;
+// const ingiTime=document.querySelector(".ingiTime");
+// const currentTime = new Date();
+// const hours = currentTime.getHours()
+// if (hours===0) {
+//   hours === 24;
+// }
+// ingiTime.innerText=`${hours}:00 기준`;
